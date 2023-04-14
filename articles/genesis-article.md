@@ -12,4 +12,4 @@
 
 # Genesis article
 
-![x](articles/res/unyt_banner.png)
+![x](res/unyt_banner.png)
