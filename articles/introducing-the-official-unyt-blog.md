@@ -1,7 +1,7 @@
 <!--
 	{
 		description: "Keep up to date with the latest developments around the unyt organization. From devlog, to security updates, and other information - everything will be covered here!",
-		preview: ./res/unyt_banner.png,
+		preview: "res/unyt_banner.png",
 		date: ~2023-04-15~,
 		tag: "Community",
 		author: "unyt.org",
