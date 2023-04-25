@@ -1,7 +1,7 @@
 <!--
 	{
 		description: "Why we don't need React (But JSX is cool) - An introduction to the UIX framework",
-		preview: "res/datex_code.png",
+		preview: "res/uix_banner.png",
 		date: ~2023-04-30~,
 		tag: "Developer",
 		author: "unyt.org",
