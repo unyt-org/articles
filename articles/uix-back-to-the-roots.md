@@ -1,6 +1,20 @@
-# Back to the roots - Developing a web native framework
+<!--
+	{
+		description: "Why we don't need React (But JSX is cool) - An introduction to the UIX framework",
+		preview: "res/datex_code.png",
+		date: ~2023-04-30~,
+		tag: "Developer",
+		author: "unyt.org",
+		authorRef: https://unyt.org
+	};
+-->
+
+
+# Back to the roots - developing a web native framework
 
 *Why we don't need React (But JSX is cool)*
+
+-An introduction to the UIX framework-
 
 ## The state of the web
 
@@ -51,7 +65,7 @@ const div: HTMLDivElement =
 	</div>
 ```
 
-If you don't want to use JSX, you can also just use the `HTML` function which provides the exact same functionality as JSX with JavaScript template strings:
+If you don't want to use JSX, you can also use the `HTML` function which provides the exact same functionality as JSX with JavaScript template strings:
 ```tsx
 const count: Datex.Pointer<number> = $$(0);
 const div: HTMLDivElement = HTML`
@@ -66,6 +80,8 @@ In the following, we will take a look at a simple list component, implemented in
 
 ### React:
 ```tsx
+declare const list: {name:string, url: string}[];
+
 function ReactListView () {
 	const [index, setIndex] = useState(0);
 	const entry = list[index];
@@ -87,9 +103,11 @@ function ReactListView () {
 
 ### UIX:
 ```tsx
-function ListView() {
+declare const list: {name:string, url: string}[];
+
+function UIXListView() {
 	const index = $$ (0);
-	const entry = index.transform(i => list[i]);
+	const entry = always(() => list[index]);
 
 	return (<>
 		<button onclick={()=>index.val++}>
@@ -100,7 +118,7 @@ function ListView() {
 			more: {entry.$.url}
 		</h2>
 		<h3>  
-			({add(index, 1)} of {list.length})
+			({always(() => index + 1)} of {list.length})
 		</h3>
 	</>);	  
 })
@@ -112,16 +130,16 @@ permanent reference to the value that can also be accessed and modified globally
 ```tsx
 const index = $$ (0);
 ```
+Then, we create a new calulcated pointer with the `always` function.
 
-Then, we transform the `index` pointer to a new value:
 ```tsx
-const entry = index.transform(i => list[i]);
+const entry = always(() => list[index]);
 ```
-The `entry` pointer will always contain the list value at the current `index` value.
+Any changes to the `index` pointer are immediately reflected in the `entry` pointer - it always contain the list value at the current `index` value.
 
 
 In the `onclick` handler of the button, we increment the index value. This automatically updates
-all relevant transform values that depend on `index`.
+all relevant pointers that depend on `index`.
 ```tsx
 <button>onclick={()=>index.val++}</button>
 ```
@@ -133,31 +151,33 @@ To get pointer references to the property values of the `entry` value, we use th
 If we just use `entry.name`, we will only get the current value of the property and the DOM wouldn't update when
 the property is modified.
 
-Finally we use the `add` transform shortcut to create a new reference to a value which is always `index + 1`:
+Finall, we create another pointer with `always`, holding the value `index + 1`:
+```tsx
+always(() => index + 1)
+```
+Alternatively, we could also use the `add` shortcut function:
 ```tsx
 add(index, 1)
 ```
-Alternatively, we could also use the normal transform method:
-```tsx
-index.transform(i => i+1)
-```
 
 
-## Summary: The advantages of UIX
+## The key advantages of UIX
 
- * UIX components are built on existing browser APIs
- * UIX does not need a virtual DOM that is completely rerendered on every state change
-   - A component function is always just called once for each component instance
-   - No weird restrictions apply inside a component function. Everything behaves like normal JS.
- * Everything is a pointer
-   * Every component is a pointer
-   * Every HTML element is a pointer
-   * Every resource is a pointer
-   * Every value is a pointer
- * Pointers are optimized:
-   * They are only initialized when they are needed or when they are explicitly created with `$$`
-   * Changes to pointer values are immediately reflected in connected observers (e.g. DOM elements), everything else remains unchanged.
-   * If a pointer is not observed anywhere, there is no significant overhead.
- * The component or parts of its state can be shared between endpoints
-   * => Components can exist in a shared context between backend and frontend
-   * => Anonymous function components already support frontend and static/dynamic backend rendering per default. Hydration is supported for class components.
+### UIX components are built on existing browser APIs
+### UIX does not need a virtual DOM that is completely rerendered on every state change
+ * A component function is always just called once for each component instance
+ * No weird restrictions apply inside a component function. Everything behaves like normal JS.
+### Everything is a pointer
+ * Every component is a pointer
+ * Every HTML element is a pointer
+ * Every resource is a pointer
+ * Every value is a pointer
+### Pointers are optimized
+ * Pointers are only initialized when they are explicitly created with `$$` or `always`.
+ * Changes to pointer values are immediately reflected in connected observers (e.g. DOM elements), everything else remains unchanged.
+ * If a pointer is not observed anywhere, there is no significant overhead.
+### The component or parts of its state can be shared between endpoints
+
+=> Components can exist in a shared context between backend and frontend
+
+=> Anonymous function components already support frontend and static/dynamic backend rendering per default. Hydration is supported for class components.
