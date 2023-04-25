@@ -12,10 +12,6 @@
 
 # Back to the roots - developing a web native framework
 
-*Why we don't need React (But JSX is cool)*
-
--An introduction to the UIX framework-
-
 ## The state of the web
 
 The web platform has come far in the last few years.
