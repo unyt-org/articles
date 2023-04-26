@@ -2,7 +2,7 @@
 	{
 		description: "Why we don't need React (But JSX is cool) - An introduction to the UIX framework",
 		preview: "res/uix_banner.png",
-		date: ~2023-04-30~,
+		date: ~2023-04-26~,
 		tag: "Developer",
 		author: "unyt.org",
 		authorRef: https://unyt.org
@@ -18,7 +18,7 @@ The web platform has come far in the last few years.
 Lots of new web standards have solved many problems that once required frameworks like jQuery to get
 anything to work.
 
-React and similar frameworks introduced new concepts, like components, and created workarounds to optimize browser rendering, like the virtual DOM. 
+[React](https://react.dev/) and similar frameworks introduced new concepts, like components, and created workarounds to optimize browser rendering, like the Virtual DOM. 
 
 Today, browsers have already implemented incredible optimizations and also added new standards for web components, templates,
 routing, and much more.
@@ -32,7 +32,7 @@ The framework is developed hand in hand with the DATEX Protocol and optimized fo
 
 ## How UIX works
 
-UIX is essentially an extension of the [DATEX JS Runtime](https://github.com/unyt-org/datex-core-js-legacy). 
+UIX is essentially an extension of the [DATEX JS Runtime](https://docs.unyt.org/manual/datex/introduction). 
 It adds new type interfaces for native HTML elements and custom component classes.
 
 This means that reactivity is supported on a per-element basis like for any other DATEX value.
@@ -46,29 +46,6 @@ This is one of the main design goals of UIX:
 
 Of course, UIX and the DATEX runtime environment still cause a considerable overhead with regard to loading times, but this can be mitigated with server prerendering and hydration.
 
-## JSX in UIX
-
-We decided to add JSX support to UIX, because it has a readable syntax and good TypeScript support.
-
-In contrast to frameworks like React, JSX in UIX is essentially just a wrapper around `document.createElement`
-that also binds the element to a DATEX pointer.
-
-```tsx
-const count: Datex.Pointer<number> = $$(0);
-const div: HTMLDivElement = 
-	<div>
-		<p>Count: {count}</p>
-	</div>
-```
-
-If you don't want to use JSX, you can also use the `HTML` function which provides the exact same functionality as JSX with JavaScript template strings:
-```tsx
-const count: Datex.Pointer<number> = $$(0);
-const div: HTMLDivElement = HTML`
-	<div>
-		<p>Count: ${count}</p>
-	</div>`
-```
 
 ## Comparison to React
 
@@ -134,10 +111,9 @@ const entry = always(() => list[index]);
 Any changes to the `index` pointer are immediately reflected in the `entry` pointer - it always contain the list value at the current `index` value.
 
 
-In the `onclick` handler of the button, we increment the index value. This automatically updates
-all relevant pointers that depend on `index`.
+In the `onclick` handler of the button, we increment the index value. This automatically updates all relevant pointers that depend on `index`.
 ```tsx
-<button>onclick={()=>index.val++}</button>
+<button onclick={()=>index.val++}></button>
 ```
 
 To get pointer references to the property values of the `entry` value, we use the special `$` property:
@@ -151,28 +127,47 @@ Finall, we create another pointer with `always`, holding the value `index + 1`:
 ```tsx
 always(() => index + 1)
 ```
-Alternatively, we could also use the `add` shortcut function:
+
+## JSX in UIX
+
+We decided to add [JSX](https://www.typescriptlang.org/docs/handbook/jsx.html) support to UIX, because it has a readable syntax and good TypeScript support.
+
+In contrast to frameworks like React, JSX in UIX is essentially just a wrapper around `document.createElement`
+that also binds the element to a DATEX pointer.
+
 ```tsx
-add(index, 1)
+const count: Datex.Pointer<number> = $$(0);
+const div: HTMLDivElement = 
+	<div>
+		<p>Count: {count}</p>
+	</div>
 ```
 
+If you don't want to use JSX, you can also use the `HTML` function which provides the exact same functionality as JSX with JavaScript template strings:
+```tsx
+const count: Datex.Pointer<number> = $$(0);
+const div: HTMLDivElement = HTML`
+	<div>
+		<p>Count: ${count}</p>
+	</div>`
+```
 
 ## The key advantages of UIX
 
 ### UIX components are built on existing browser APIs
-### UIX does not need a virtual DOM that is completely rerendered on every state change
- * A component function is always just called once for each component instance
- * No weird restrictions apply inside a component function. Everything behaves like normal JS.
+
+UIX does not need a virtual DOM. Component functions are always just called once for each component instance. No weird restrictions apply inside a component function. Everything behaves like normal JS.
+
 ### Everything is a pointer
  * Every component is a pointer
  * Every HTML element is a pointer
  * Every resource is a pointer
  * Every value is a pointer
-### Pointers are optimized
- * Pointers are only initialized when they are explicitly created with `$$` or `always`.
- * Changes to pointer values are immediately reflected in connected observers (e.g. DOM elements), everything else remains unchanged.
- * If a pointer is not observed anywhere, there is no significant overhead.
-### The component or parts of its state can be shared between endpoints
+
+Changes to pointer values are immediately reflected in connected observers (e.g. DOM elements), everything else remains unchanged.
+If a pointer is not observed anywhere, there is no significant overhead.
+
+### A component or parts of its state can be shared between endpoints
 
 => Components can exist in a shared context between backend and frontend
 
