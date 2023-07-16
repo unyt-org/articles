@@ -21,6 +21,8 @@ However, let's try to give a definition for the term "Web 3.0" from our point of
 ### The Evolution of the Web
 [Sir Tim Berners-Lee](https://en.wikipedia.org/wiki/Tim_Berners-Lee), the visionary British computer scientist, invented the World Wide Web (WWW) back in 1989. His groundbreaking creation laid the foundation for the interconnected web we know today.
 
+<img src="./res/what-is-web3.0/evolution-web.png">
+
 #### Web 1.0: The Dawn of the Internet
 Web 1.0 was the internet of static web pages, where users could access information. It provided a platform for static web pages where users could passively access and consume information. The focus was on one-way communication, with limited interactivity and user participation. 
 
