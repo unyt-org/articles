@@ -34,15 +34,10 @@ The unyt community is made up of individuals from all over the world who share a
 
 By joining [unyt.blog](https://unyt.blog), users become part of this community and have the opportunity to connect with like-minded individuals and engage in meaningful discussions.
 
-Conclusion
-In conclusion, unyt.blog is a valuable resource for anyone who is interested in learning about the latest developments in technology and staying informed about the latest news and updates in the world of unyt. Whether you are a seasoned expert or just starting to learn about unyt, this platform provides a space for you to share your knowledge and connect with others who share your interests.
+## 📌 Conclusion
+In conclusion, [unyt.blog](https://unyt.blog) is a valuable resource for anyone who is interested in learning about the latest developments in technology and staying informed about the latest news and updates in the world of unyt. Whether you are a seasoned expert or just starting to learn about unyt, this platform provides a space for you to share your knowledge and connect with others who share your interests.
 
 
 ## References
 * [unyt.blog](https://unyt.blog)
 * [GitHub - blog repository](https://github.com/unyt-org/blog)
-
----
-
-<sub>&copy; unyt 2023 • [unyt.org](https://unyt.org)</sub>
-
