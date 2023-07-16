@@ -21,23 +21,30 @@ In today's digital age, secure and discrete communication has become a paramount
 **Information Exchange** - Imagine following scenario:
 You want to send some private data to a colleague. 
 Okay, that sounds easy - but how do you do it?
-* *Probably the most common way is via email* - but wait, the most widespread communication medium in the world is not encrypted by default.
-* *What about Telegram Messenger* - same here, chats are not encrypted by default and can be read in plain text without any problems.
-* *All right, then a small technical step back and send the data by mail?* - Well, actually not a bad idea, but where the hell does your colleague live?
+
+*Probably the most common way is via email* - but wait, the most widespread communication medium in the world is not encrypted by default.<br>
+*So, what about Telegram Messenger?* - same here, chats are not encrypted by default and can be read in plain text without any problems.<br>
+*All right, then a small technical step back and send the data by mail?* - Well, actually not a bad idea, but where the hell does your colleague live?
 
 
-## Introducing: The Supranet
+## Introduction
 *Every person, every institution, everybody owns data.* 
 Imagine a personal vault that contains all your private programs and data. You are per default the only one who can unlock the vault, can mutate, delete or add the data in the vault. You are able to authorize other people to open certain compartments for accessing specific parts of your data that you want to share with them. The same vault does now exists across all computers around the globe for as long as you want it to. You can freely communicate with any participant in the network, but no one except you and the other party can tell, what you are talking about or which information you are exchanging.
 
-## Introduction
-Imagine a global network - a communication platform where anyone can exchange information with the world in real time, collaborative ideas emerge, and the entire globe connects... *oh wait - isn't that what the internet is for?*
- 
+All of the above is an extreme over-simplification of what we are doing at [unyt.org](https://unyt.org), but it is true for a reason - we are indeed creating a platform where anyone can exchange information stored in their personal digital vault with the whole world in a secure and private manner: *We are introducing ...*
+
+## The Supranet
 In the digital age, the internet is indeed the global communication medium, that's great - but something is missing here: Focus on essential design paradigms including **privacy**, **standardization**, **data ownership**, **total equality** and **complete freedom**.
  
 The internet as we know it today was designed as a data exchange facility between institutions, not to become a global network that serves as the primary communication medium providing essential services for a digitalized society. 
 
-This is why we as [unyt.org](https://unyt.org) are working on the **Supranet** - an innovative decentralized peer-to-peer network that empowers individuals to engage in secure, discrete conversations and closes the gap betweem systems. With Supranet we want to allow participants total privacy and availability over their personal data and communication. We aim to eliminate the existing opaque chaos of personal data usage collected by providers on the internet. We plan to break down communication barriers between platforms and applications due to the lack of standardization. We proposes to establish a comprehensive environment for a decentralized communication network, where participants enjoys the benefits of total privacy and data ownership, sharing the same absolute rights due to fair distribution of power.
+This is why we as [unyt.org](https://unyt.org) are working on the **Supranet** - an innovative decentralized peer-to-peer network that empowers individuals to engage in secure, discrete conversations and closes the gap betweem systems. With *Supranet* we want to allow participants total privacy and availability over their personal data and communication. We aim to eliminate the existing opaque chaos of personal data usage collected by providers on the internet. We plan to break down communication barriers between platforms and applications due to the lack of standardization. We proposes to establish a comprehensive environment for a decentralized communication network, where participants enjoys the benefits of total privacy and data ownership, sharing the same absolute rights due to fair distribution of power.
+
+The *Supranet* is a next generation network that closes the gap between the physical and digital space and essentially acts as a globally distributed super-computer.
+
+The *Supranet* is built with the lessons learned from the last decades.
+Fundamental web protocols like HTTP, TCP/IP and DNS still form the base for *Supranet* information exchange, but are more or less redundant due to our [DATEX](https://docs.unyt.org/datex) protocol that serves as the backbone and universal language of the whole network.
+
 
 ## Today vs Future
 
@@ -57,21 +64,31 @@ This has been seen in numerous political situations, where governments have misu
 
 
 ### Future
-**The [unyt.org](https://unyt.org) project aims to address these issues by providing the Supranet as a decentralized and privacy-focused alternative to the conventional internet.**
+**The [unyt.org](https://unyt.org) project aims to address these issues by providing the *Supranet* as a decentralized and privacy-focused alternative to the conventional internet.**
 
-The privacy of users is a central concern in the design of the Supranet. All communication between endpoints is end-to-end encrypted, ensuring that only the intended recipients have access to the data. Endpoints are authenticated through the [HELIX](https://unyt.org)-blockchain, allowing them to interact with the ecosystem in a secure and private manner. This privacy-by-design approach ensures that users can interact without fear of their data being intercepted or misused by third parties.
+The privacy of users is a central concern in the design of the *Supranet*. All communication between users (endpoints) is end-to-end encrypted per default, ensuring that only the intended recipients have access to the data. Endpoints are authenticated through the [HELIX](https://unyt.org)-blockchain, allowing them to interact with the ecosystem in a secure and private manner. This privacy-by-design approach ensures that endpoints can interact without fear of their data being intercepted or misused by third parties.
 
-
-## Why do we need unyt.org?
 The internet consists of a colorful patchwork of design aspects, communication protocols and ideas from totally different decades. In the origins of the internet, the possibility to have encrypted communication was never considered. Various protocols that build on and complement each other thus form the basis of the state of the art internet. A decentralized architecture has turned into a centralized network governed by a few large players, where all services have to implement fundamental logic, such as data exchange, login logic or data storage, from scratch, each for itself, without having common standards.
 
-With the *Supranet*, [unyt.org](https://unyt.org) introduces a revolutionary approach: **A fully decentralized network secured by blockchain technologies, that builds on the existing web infrastructure, but is also fully self-sufficient.** All essential protocol layers, including routing, encryption and signing are covered within our single-layer protocol *DATEX*.
+With the *Supranet*, [unyt.org](https://unyt.org) introduces a revolutionary approach: **A fully decentralized network secured by blockchain technologies, that builds on the existing web infrastructure, but is also fully self-sufficient.**.
+
+## How We Shape The Democratic Web
+Centralized platforms often suffer from issues of censorship and control. We recognize the importance of decentralization in fostering *Supranet* as truly democratic network.
+
+To create a democratic network following conditions must be meet:
+1. Everybody can join *(no fee / no exclusion)*
+2. Everybody shares the same rights *(fair power distribution)*
+3. All Communication is encrypted, secure and unlikable *(No surveilance)*
+4. Censorship is impossible *(Freedom of speech)*
+5. Anonymous unlikable usage is possible
+
+With *Supranet* all of those conditions are covered:
+1. *Supranet* is open-source and free to use. One of our core tenets is our commitment to open-source development. By embracing the principles of transparency and collaboration, [unyt.org](https://unyt.org) invites developers, enthusiasts, and the wider community to contribute to the project's growth and improvement. Unlike closed-off networks that restrict entry or stifle diverse perspectives, *Supranet* welcomes everybody. With open-source code, we benefit from the scrutiny and contributions of a diverse community of developers. This collective effort helps to identify and address security vulnerabilities promptly, ensuring a robust and resilient platform. By harnessing the power of many, the prokect stands strong against potential threats and evolves to meet the ever-changing landscape of digital security.
+2. *Supranet* is built on decentralized infrastructure, ensuring that power is distributed among participants rather than concentrated in the hands of a select few. This approach cultivates an inclusive and diverse ecosystem where every voice has the opportunity to be heard. 
+3. The *Supranet* uses the *DATEX*-protocol and *HELIX*-chain to establish connection to other endpoints. All communication is end-to-end encrypted and includes digital signatures by default between all parties. Traffic is unlikable trought the usage of anonymous endpoints.
+4. The *Supranet*'s decentralized network storage and the *HELIX*-chain act as distributed unmutable ledgers. All data that was send can be retrieved by the receiver at any time from the ledgers without having given a single authority the possibility to censor or block this distributed data.
+5. Per default all endpoints in the *Supranet* act as anonymous endpoints. The traffic and communication can not be interlinked to the real human entity that controls this exact same endpoint.
 
 
-In contrast to the existing internet...
-* The Supranet does not distinguish between IP addresses and MAC addresses, but between identifiers
-* Nodes are not divided into server and client, but are all considered endpoints
-* Endpoints can act completely anonymously, or can optionally be used as digital identities
-* Data is not stored on central servers, but distributed on our decentralized network storage within in the Supranet
-* Endpoints have total control over their personal data to ensure data ownership
-* Far-reaching object state / pointer synchronization offers not only maximum integrity but also complete data availability across the Supranet
+## Conclusion
+Our open-source and free-to-use approach revolutionizes the way we perceive secure and discrete communication. By embracing **transparency**, **collaboration**, and **accessibility**, the *Supranet* network empowers individuals and communities worldwide. We fosters an environment where everyone can engage in **private**, **secure**, and **democratic** communication. Together, we can build a future where open-source principles and free access lay the foundation for a safer and more inclusive digital world.
