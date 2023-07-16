@@ -1,7 +1,7 @@
 <!--
 	{
-		description: "Introduction to unyt.org's democratic network and communication approach",
-		preview: "res/header-democracy.png",
+		description: "Introduction to unyt.org's digital voting system",
+		preview: "res/header-digital-voting.png",
 		date: ~2023-07-18~,
 		tag: "Security",
 		author: "unyt.org",
@@ -10,11 +10,8 @@
 -->
 
 
-# Introduction to unyt.org's democratic network and communication approach
+# Introduction to unyt.org's digital voting system
 
-**Privacy is dead.**
-
-## Anonymous digital voting
 Traditional paper-based voting systems, like those employed in most goverment elections (*US Presidential Election* / *German federal election*), are not only expensive and intransparent, but also prone to inefficiencies and [potential fraud](https://de.wikipedia.org/wiki/Bundestagswahl_2021#Unregelm%C3%A4%C3%9Figkeiten_in_Berlin_und_Einspruch_des_Bundeswahlleiters). 
 
 The management and counting of votes require extensive human resources and can cost a stack of bucks... a big stack. With [unyt.org](https://unyt.org) we are introducing a better, cheaper, fully transparent and more secure alternative to traditional systems: **unyt.org's digital democratic blockchain-backed voting system**. 
