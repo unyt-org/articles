@@ -70,3 +70,13 @@ We can now start our app locally by running `uix` in the root directory.
 
 The app should be available on `http://localhost:80`.
 Per default, our app is also immediately accessible via a unyt.app subdomain (todo: restricted access).
+
+
+## A more advanced example
+
+It is good practice to always add a `satisfies UIX.Entrypoint` to default entrypoint exports to make
+sure the exported value can be rendered on the browser:
+```ts
+import {UIX} from "uix";
+export default "Hello World" satisfies UIX.Entrypoint
+```
