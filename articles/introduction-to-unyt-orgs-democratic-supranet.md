@@ -1,6 +1,6 @@
 <!--
 	{
-		description: "Introduction to unyt.org's democratic Supranet",
+		description: "Our audacious plan to make today's internet a safe, democratic and fair space for everyone.",
 		preview: "res/header-democracy.png",
 		date: ~2023-07-18~,
 		tag: "Community",
