@@ -1,6 +1,6 @@
 <!--
 	{
-		description: "We introducte the brand new unyt.land service - your gateway to seamless TypeScript module loading directly in the browser.",
+		description: "We are introducing the brand new unyt.land service - your gateway to seamless TypeScript module loading directly in the browser.",
 		preview: "res/unyt-land.png",
 		date: ~2023-10-20~,
 		tag: "Developer",
