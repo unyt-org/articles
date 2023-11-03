@@ -3,7 +3,7 @@
 		description: "An introduction to the UIX framework for React developers",
 		preview: "res/uix_banner.png",
 		date: ~2023-11-3~,
-		tag: "Developers",
+		tag: "Developer",
 		author: "unyt.org",
 		authorRef: https://unyt.org
 	};
