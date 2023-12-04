@@ -26,14 +26,16 @@ This default export value can contain various different values, as explained in 
 A `UIX.Entrypoint` can be any renderable content, like:
  * A Component or simple HTML Element
  * A primitive value, like a string or number
- * A `Response` object
+
+Beyond that, raw HTTP `Response` objects can be returned, as well as `URL` values to redirec to
+a new URL.
 
 Displaying plain text:
 ```tsx
 export default "Hello World";
 ```
 
-Instead of static content, you can also always provide an (async) function returning the content instead:
+Instead of static content, you can also always provide a function returning the content instead:
 
 ```tsx
 export default () => `Hello World, the time is ${new Date().toLocaleString()}`;
@@ -46,15 +48,22 @@ If you want live content, you can pass in reactive values (Datex Pointers), for 
 const currentTime: Datex.Pointer<Date> = Datex.Time.getLive();
 export default () => text `Hello World, the time is ${currentTime}`;
 ```
+(
+	Besides that, entrypoints can be an implementation of `UIX.RouteHandler`.
 
-Besides that, entrypoints can be an implementation of `UIX.RouteHandler`.
-
-## Route Handlers
-A route handler is an entrypoint that takes a route as an input and returns a new entrypoint for that route.
-
-
-UIX strictly regards JSX as another way to represent DOM Elements, and thus does support routing via JSX Components.
+	## Route Handlers
+	A route handler is an entrypoint that takes a route as an input and returns a new entrypoint for that route.
 
 
-## File-Based Routing
+	UIX strictly regards JSX as another way to represent DOM Elements, and thus does support routing via JSX Components.
+)
+
+## File-Based Routing and other UIX Route Providers
+
+
+## The magic of UIX: merging server & client side routing
+
+
+
+## Server Side Rendering, Hydration and more
 
