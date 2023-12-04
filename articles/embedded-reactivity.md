@@ -1,6 +1,6 @@
 <!--
 	{
-		description: "A",
+		description: "",
 		preview: "res/uix_banner.png",
 		date: ~2023-12-04~,
 		tag: "Developer",
