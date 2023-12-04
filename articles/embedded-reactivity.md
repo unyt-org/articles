@@ -1,7 +1,7 @@
 <!--
 	{
 		description: "",
-		preview: "res/uix_banner.png",
+		preview: "res/uix_banner_jsx.png",
 		date: ~2023-12-04~,
 		tag: "Developer",
 		author: "unyt.org",
@@ -14,9 +14,9 @@
 
 *The features described in this article are still in an early stage of development. The behaviour might change significantly in the future and the functionality could be completely removed.*
 
-## Overview of the UIX reactivity model
+## Overview of the current DATEX/UIX reactivity model
 
-UIX has a fine-grained reactivity model that provides inherent reactivity for values wrapped with `$$()`.
+DATEX JS has a fine-grained reactivity model that provides inherent reactivity for values wrapped with `$$()`.
 
 Updating reactive values works exactly the same as with normal values:
 ```ts
