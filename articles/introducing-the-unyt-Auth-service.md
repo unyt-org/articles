@@ -15,8 +15,12 @@ We are shipping our brand new authentication service **"unyt Auth"** - a free of
 
 As of today - you can join the Supranet, our decentralized network, using your personal endpoint identifier and keys to connect to any of the available relays. Here unyt Auth serves as the new user-friendly web-based entry point to the network, ensuring a secure and reliable authentication flow for users.
 
+
+> ## TL;DR 
+> If you can't wait to register your personal endpoint with unyt Auth, go to [auth.unyt.org/redeem](https://auth.unyt.org/redeem) and redeem your token. You can then easily register with any app in the Supranet - how about [unyt Me](https://auth.unyt.org)?
+
 ## Endpoint Types
-We distinguish between different endpoint types: **Personal endpoints** represent individuals such as people (`@elonmusk`)*. Entities such as organizations or companies are represented by **institutional endpoints** (`@+unyt`). **ID endpoints** are used for anonymous access on the Supranet (`@@1E4209D40D00000000A0B83C4BE18DF0`).
+We distinguish between different endpoint types: **Personal endpoints** represent individuals such as people (`@elonmusk`). Entities such as organizations or companies are represented by **institutional endpoints** (`@+unyt`). **ID endpoints** are used for anonymous access on the Supranet (`@@1E4209D40D00000000A0B83C4BE18DF0`).
 
 ### Anonymous Endpoint
 The Supranet allows the usage of anonymous unlinkable endpoint IDs, making it possible to join the network without leaving too many traces. Users can connect to the Supranet without revealing their real identities, thus ensuring their online privacy. To create anonymous endpoints for accessing the Supranet the unyt Auth service is not required (more information can be found in the [DATEX manual](https://docs.unyt.org/manual/datex/endpoints)).
@@ -46,9 +50,10 @@ In the example from above you can tell that `@bartsimpson` has registered for an
 The above graphic shows the registration entry similar to the registration for the main endpoint with the difference that the creator no longer is the `@+unyt_auth` entity but the personal main endpoint `@bartsimpson` of the requester.
 
 This is what it looks like on the user interface:
+
 <img width="300" src="./res/article-auth/endpoint-authorization-ui.png"/>
 
-# Authentication
+## Authentication
 unyt Auth offers users two primary methods for authentication:
 
 **Key Authentication**: This method relies on the handling of the endpoints key pair. It requires loading sensitive information from the private key.
@@ -59,15 +64,15 @@ When using the password authentication method, unyt Auth ensures the security of
 
 unyt Auth places a strong emphasis on user choice and privacy. Users who are concerned about the security of their private data always have the option to handle the private key and exchange process on their own. unyt Auth does not force users to upload any private data, allowing them to assume responsibility for their data security.
 
-# Technical background
+## Technical background
 In the following, we would like to present written evidence on the security aspects and design decisions of the unyt Auth service. An authentication system such as unyt Auth is a complex security-critical procedure, which requires enormous emphasis on security and data protection.
 
-## Key Handling
+### Key Handling
 The basic security measure of unyt Auth is never to pass on the access data (private keys) of the main endpoint to third parties. For this reason, neither the private keys to the app nor central session ids are issued. For this reason, an app-specific endpoint is created for each app (`@bartsimpson.reddit`, `@bartsimpson.github`), which are completely isolated from each other and do not share any key files.
 
 When you log in or register an app-specific endpoint, the keys and endpoint ID of the app endpoint are passed on to the app and stored there until you log out.
 
-## Key Storage / Exchange
+### Key Storage / Exchange
 unyt Auth allows local key handling completely detached from central services. However, we strongly recommend storing the encrypted keys of your endpoints at unyt Auth. By using a password and a second validation factor (mail / OTP / phone number), these keys can be decrypted and used locally. This helps to prevent the problem that users often exchange private keys via insecure channels when logging in on multiple devices as well as the problem that private keys can be tapped on phishing sites.
 
 unyt Auth offers the option of login via QR, which enables the exchange of private keys via a secure end-to-end encrypted channel on the Supranet. This makes logging in to new devices easier and more secure than having to exchange the private key.
@@ -80,15 +85,15 @@ To prevent brute force attacks or dictionary attacks on the data stored at unyt 
 
 By linking the *endpoint ID* and *password* `H(EndpointId + Password)`, a secure password is generated that must be checked against all combinations of these without knowing which password belongs to which endpoint and key during a brute force attack. The concatenation between password and endpoint ID `H(Password + EndpointId)` is used so that the assigned encrypted key files from unyt Auth can be requested at login. An anonymous endpoint is used for these requests so that unyt Auth is not informed of the assignment between EndpointId and Keyfile here either. 
 
-# Future
+## Future
 Consider the example of an app called "someApp" that includes the unyt Auth component on its page. The unyt Auth page features a key store that associates registered endpoints with specific applications.
 
 When a user logs in to "someApp," the traffic from the anonymous endpoint created when loading the app is routed to the unyt Auth iframe on the same page. This iframe has the capability to encrypt, decrypt, and sign packages. This design ensures that the private key of the user's app-specific endpoint is never exposed to the app itself. Instead, it is securely stored encrypted in the app's cookies, inaccessible to the app. The unyt Auth iframe handles the decryption and authentication process, ensuring the security and privacy of the user's authentication on the Supranet.
 
 In order to detect potential fraud originating from unyt Auth, our source code is publicly available and we recommend exclusively loading it with [subresource integrity checks](https://www.w3.org/TR/SRI/).
 
-# Implement unyt Auth in your app
-unyt Auth can be seamlessly integrated into any UIX application, enhancing security and authentication processes for users.
+## Implement unyt Auth in your own app
+unyt Auth can be seamlessly integrated into any UIX application, enhancing security and authentication processes for users. This is pretty much all it needs for:
 
 ```tsx
 import { AuthIcon } from "auth";
@@ -101,13 +106,13 @@ export default
 
 Check out the [example auth repository](https://github.com/unyt-org/example-auth) for more information.
 
-# Conclusion
+## Conclusion
 In summary, unyt Auth offers a robust authentication solution that empowers users to choose their preferred method of authentication while maintaining a strong focus on privacy and security. Whether you opt for the convenience of password-based authentication or prefer to manage your private key independently, unyt Auth provides a versatile and user-centric authentication service for the modern online world.
 
-# FAQ
+## FAQ
 * **Lost your access?** - If you have stored your encrypted data at unyt Auth you will be able to retrieve your personal private key by login via password and second factor (OTP / mail / phone number). If you still have a local keyfile you can login at [me.unyt.org](https://me.unyt.org) and reset your password and 2FA. If you totally lost access to password and keyfile, then you are pretty unlucky: Your endpoint will be no longer recoverable.
 * **Want to delete your endpoint?** - Sorry, you got absolutely no change to delete your traces. Since the Supranet uses a decentralized blockchain that acts as persistent und unchangeable ledger you will always stay part in the chain's history.
 
-# References
+## References
 * [unyt.org](https://unyt.org)
 * [unyt.auth](https://auth.unyt.org)
