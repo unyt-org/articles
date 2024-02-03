@@ -30,4 +30,4 @@ In conclusion, unyt.blog is a valuable resource for anyone who is interested in 
 
 ---
 
-<sub>&copy; unyt 2023 • [unyt.org](https://unyt.org)</sub>
+<sub>&copy; unyt 2024 • [unyt.org](https://unyt.org)</sub>
