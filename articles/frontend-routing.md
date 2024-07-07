@@ -1,6 +1,6 @@
 <!--
 	{
-		description: "Introducing the new frontend routing system for UIX",
+		description: "Introducing the new experimental routing system",
 		preview: "res/frontend-routing.png",
 		date: ~2024-07-07~,
 		tag: "Developer",
