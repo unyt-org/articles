@@ -1,3 +1,14 @@
+<!--
+	{
+		description: "Introducing the new frontend routing system for UIX",
+		preview: "res/frontend-routing.png",
+		date: ~2024-07-07~,
+		tag: "Developer",
+		author: "Benedikt Strehle",
+		authorRef: https://unyt.org
+	};
+-->
+
 # Client-Side Routing for Web Apps with UIX
 
 UIX leverages the power of the new [Navigation API](https://developer.mozilla.org/en-US/docs/Web/API/Navigation) to seamlessly integrate client-side routing into the existing UIX routing system. This allows for a more fluid user experience by avoiding full page reloads and enabling smooth transitions between different views.
