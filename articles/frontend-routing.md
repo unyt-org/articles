@@ -45,7 +45,6 @@ A major advantage of this new routing system is that it also allows navigation t
 > [!NOTE]
 > Backend routing without page reloads is currently not supported when serving file content from the backend (e.g., images, JSON). In this case, the page will still reload when navigating to a backend route.
 
-> [!INFO]
 > ## What exactly is the Navigation API?
 > With the introduction of the Navigation API, web developers now have a standardized way to handle navigation events in the browser. This API provides a set of methods and events that allow developers to control the browser's history stack, navigate between pages, and handle user interactions such as back and forward button clicks.
 > This makes it possible to support routing for Single Page Applications (SPAs) without relying on third-party libraries or complex custom implementations.
