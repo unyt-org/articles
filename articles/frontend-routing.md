@@ -33,11 +33,18 @@ export default {
 
 When this entrypoint is located in the `backend` directory, the routes defined in this file will be resolved and rendered server-side. When the entrypoint is located in the `frontend` directory, the routes will be rendered client-side.
 
+## Frontend Routing
+> This feature is marked as experimental in `UIX@<0.2.16`! Make sure to add the `frontend-navigation` flag to the `experimental_features` list in *app.dx* config.
+
+
 ## View Transitions
+> This feature is marked as experimental in `UIX@<0.2.16`! Make sure to add the `view-transitions` flag to the `experimental_features` list in *app.dx* config.
 
 The new [View Transitions API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API) offers a streamlined approach to creating animated transitions between different views and pages. This simplifies the process of animating transitions between DOM states in single-page applications and navigating between documents in multi-page applications.
 
 Since the API has limited availability and is only supported in Chromium-based browsers, UIX enables support for view transitions only when the `view-transitions` flag is added to the `experimental_features` list inside of the *app.dx* config file.
+
+[Here is a UIX demo project](https://github.com/unyt-org/example-view-transitions) that showcases how to use the view transitions in your project.
 
 *Quick tour* in three steps:
 
