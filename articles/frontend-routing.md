@@ -5,7 +5,7 @@
 		date: ~2024-07-07~,
 		tag: "Developer",
 		author: "Benedikt Strehle",
-		authorRef: https://unyt.org
+		authorRef: https://github.com/benStre
 	};
 -->
 
