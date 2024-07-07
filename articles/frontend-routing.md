@@ -25,10 +25,64 @@ Here is an example of a simple `entrypoint.ts` file:
 
 ```ts
 export default {
-  '/': () => <div>Welcome to the homepage!</div>,
-  '/about': () => <div>Learn more about us!</div>,
-  '/contact': () => <div>Contact us here!</div>,
+    '/': () => <div>Welcome to the homepage!</div>,
+    '/about': () => <div>Learn more about us!</div>,
+    '/contact': () => <div>Contact us here!</div>,
 }
 ```
 
 When this entrypoint is located in the `backend` directory, the routes defined in this file will be resolved and rendered server-side. When the entrypoint is located in the `frontend` directory, the routes will be rendered client-side.
+
+## View Transitions
+
+The new [View Transitions API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API) offers a streamlined approach to creating animated transitions between different views and pages. This simplifies the process of animating transitions between DOM states in single-page applications and navigating between documents in multi-page applications.
+
+Since the API has limited availability and is only supported in Chromium-based browsers, UIX enables support for view transitions only when the `view-transitions` flag is added to the `experimental_features` list inside of the *app.dx* config file.
+
+*Quick tour* in three steps:
+
+1. Start by defining animations for both the outgoing and ingoing transitions
+    ```CSS
+    @keyframes move-out {
+        from {
+            transform: translateX(0%);
+        }
+        to {
+            transform: translateX(-100%);
+        }
+    }
+
+    @keyframes move-in {
+        from {
+            transform: translateX(100%);
+        }
+        to {
+            transform: translateX(0%);
+        }
+    }
+    ```
+2. Apply the custom animations to the old and new page states using the `view-transitions` pseudo selectors
+    ```CSS
+    ::view-transition-old(root) {
+        animation: 0.5s ease-in both move-out;
+    }
+
+    ::view-transition-new(root) {
+        animation: 0.5s ease-in both move-in;
+    }
+    ```
+3. To play different animations for different elements in your DOM you can assign the `view-transition-name` property to your element and use the pseudo-selectors `::view-transition-old(TRANSITION-NAME)`, `::view-transition-new(TRANSITION-NAME)` to customize the animations
+
+    ```CSS
+    .my-page {
+      view-transition-name: my-transition;
+    }
+
+    ::view-transition-old(my-transition) {
+        /* animate out effects */
+    }
+
+    ::view-transition-new(my-transition) {
+        /* animate in effects */
+    }
+    ```
