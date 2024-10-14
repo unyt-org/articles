@@ -1,6 +1,6 @@
 <!--
 	{
-		description: "Introducing magic with UIX@0.3.0",
+		description: "Introducing magic with UIX 0.3",
 		preview: "res/uix-0.3.0.png",
 		date: ~2024-10-15~,
 		tag: "Developer",
@@ -9,25 +9,28 @@
 	};
 -->
 
-# Introducing magic with UIX@0.3.0
+# Introducing magic with UIX 0.3
 
 The latest release of UIX is here, and it’s not just an upgrade — it’s an evolution. With [UIX@0.3.0](https://github.com/unyt-org/uix), reactivity is no longer something you have to think about. *It’s simply there, by default. Like magic!*
 
-To make this experience, we’ve introduced [JUSIX](https://github.com/unyt-org/jusix), a Rust-based module that handles the interpretation of JSX code as reactive JavaScript. UIX uses a custom version of Deno as backend runtime called [Deno for UIX](https://github.com/unyt-org/deno). JUSIX is integrated directly into the [Deno for UIX AST](https://github.com/unyt-org/deno_ast) (Abstract Syntax Tree) to enable automatic reactivity for the backend. JUSIX does also work for frontend *(browser)* code by transpiling the frontend modules to plain JavaScript using SWC with the [JUSIX WASM plugin](https://github.com/unyt-org/jusix/tree/wasm-plugin) enabled. That allows the browser to treat reactivity the same way as the backend does. 
+To make this experience, we’ve created [JUSIX](https://github.com/unyt-org/jusix), a Rust-based module that handles the interpretation of JSX code as reactive JavaScript. UIX uses a custom version of Deno as backend runtime called [Deno for UIX](https://github.com/unyt-org/deno). JUSIX is integrated directly into the [deno_ast crate(https://github.com/unyt-org/deno_ast) to enable automatic reactivity for the backend. JUSIX does also work for frontend *(browser)* code by transpiling the frontend modules to plain JavaScript using SWC with the [JUSIX WASM plugin](https://github.com/unyt-org/jusix/tree/wasm-plugin). That allows the browser to treat reactivity the same way as the backend does. 
 
-That’s right — you don’t even need to wrap your head around complex logic using `$`-properties and `always` calls as required for older UIX releases. UIX does now take care of it for you!
-
+Now you no longer need to wrap your head around complex logic using `$`-properties and `always` calls as required for previous UIX versions. UIX does now take care of it for you!
 
 Here’s a simple example:
 
 ```tsx
-const counter = $(0);
-<button
-	value={'Clicked:' + counter}
-	onclick={() => counter.val++}/>;
+const checked = $(false);
+export default
+    <div>
+        <input type="checkbox" checked={checked}/>
+        <label>{checked ? "Checked" : "Not checked"}</label>
+    </div>
 ```
 
-This `<button>` is bound to the counter `Ref`. When the button is clicked, the counter value updates automatically, and so does the button’s label. We don’t need to write any additional logic.
+This checkbox is bound to the `checked` pointer, meaning that the value of `checked` is updated when the checkbox is checked/unchecked. The label text always reflects the current state of the checkbox - the ternary
+expression is automatically reevaluted when the value of the `checked` pointer changes.
+We don’t need to write any additional logic.
 
 ## The “always” Method? Throw it away! 🪄
 
@@ -39,7 +42,7 @@ const myVar = $(4);
 myVar.val ++;
 ```
 
-But in `UIX@0.3.0`, this is all handled for you. The new syntax can look like this:
+But in UIX 0.3, this is all handled for you. The new syntax can look like this:
 
 ```tsx
 const myVar = $(4);
@@ -49,7 +52,7 @@ myVar.val ++;
 
 It’s pure reactivity, with zero hassle. We took care of it so you don’t have to. Find out more in our [docs](https://docs.unyt.org/manual/uix/getting-started).
 
-## UIX@0.3.0 Changelog 📝
+## UIX 0.3 Changelog 📝
 We didn’t just stop at improving reactivity. Here’s what else you can expect in this release:
 
 * **Performance Improvements**: Various optimizations were made to boost performance, especially for large-scale applications with complex data structures.
