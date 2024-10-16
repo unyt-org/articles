@@ -11,7 +11,7 @@
 
 # Introducing magic with UIX 0.3
 
-The latest release of UIX is here, and it’s not just an upgrade — it’s an evolution. With [UIX@0.3.0](https://github.com/unyt-org/uix), reactivity is no longer something you have to think about. *It’s simply there, by default. Like magic!*
+The latest release of UIX is here, and it’s not just an upgrade — it’s an evolution. With [UIX 0.3](https://github.com/unyt-org/uix), reactivity is no longer something you have to think about. *It’s simply there, by default. Like magic!*
 
 To make this experience, we’ve created [JUSIX](https://github.com/unyt-org/jusix), an [SWC](https://swc.rs/) plugin that handles the interpretation of JSX code as reactive JavaScript. UIX uses a custom version of Deno as backend runtime called [Deno for UIX](https://github.com/unyt-org/deno). JUSIX is integrated directly into the [deno_ast crate](https://github.com/unyt-org/deno_ast) to enable automatic reactivity for the backend. JUSIX also works for frontend *(browser)* code by transpiling the modules to plain JavaScript using a [SWC WASM plugin](https://github.com/unyt-org/jusix/tree/wasm-plugin). That allows the browser to treat reactivity the same way as the backend does. 
 
@@ -63,11 +63,13 @@ We didn’t just stop at improving reactivity. Here’s what else you can expect
 
 
 ## A Love Letter to Deno 💖
->Dear Deno,
+> Dear Deno,
 >
->You had me at **no `node_modules`**! Your native TypeScript support, security-first design, and sleek, clean repository structure — what’s not to love? Thanks to your design it was effortless for us at UIX to create our custom [Deno fork](https://github.com/unyt-org/deno) that even uses your CI.
+> You had me at **no `node_modules`**! Your native TypeScript support, security-first design and focus on web standards - what’s not to love?
+> Thanks to your fantastic work, it was effortless for us at unyt.org to create our custom [Deno fork](https://github.com/unyt-org/deno) that even uses your CI.
 >
->But this letter it’s not just about us. You’ve been the foundation for UIX - our fullstack framework that we are really proud of. Deno, over the years you’ve been more than a runtime to us — you’re the reason UIX exists.
+> But this letter is not just about us. You’ve been the backbone of the UIX project. Deno, over the years you’ve been more than a runtime to us — you’re the reason UIX exists.
+> Congratulations to your release 2.0!
 >
 >With love,<br/>
 >The UIX Team
@@ -75,7 +77,7 @@ We didn’t just stop at improving reactivity. Here’s what else you can expect
 *Alright, alright - putting aside the seemingly AI generated letter above - a big thank you to the Deno team - you are doing a great job and we have been fans of your project since day one.*
 
 ## Ready to Dive In? 🚀
-The future of web development with UIX is now even more reactive, more efficient, and easier to use than ever before. Whether you’re working on your apps backend logic or working on your highly dynamic frontend, `UIX@0.3.0` has got you covered.
+The future of web development with UIX is now even more reactive, more efficient, and easier to use than ever before. Whether you’re working on your apps backend logic or working on your highly dynamic frontend, `UIX@ 0.3` has got you covered.
 
 So, what are you waiting for? [Install UIX!](https://github.com/unyt-org/uix-install)
 
