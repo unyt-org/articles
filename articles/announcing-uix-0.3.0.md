@@ -1,7 +1,7 @@
 <!--
 	{
 		description: "Introducing magic with UIX 0.3",
-		preview: "res/uix-0.3.0.png",
+		preview: "res/uix-0.3.png",
 		date: ~2024-10-15~,
 		tag: "Developer",
 		author: "Jonas Strehle",
