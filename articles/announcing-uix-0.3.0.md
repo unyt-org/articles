@@ -77,7 +77,7 @@ We didn’t just stop at improving reactivity. Here’s what else you can expect
 *Alright, alright - putting aside the seemingly AI generated letter above - a big thank you to the Deno team - you are doing a great job and we have been fans of your project since day one.*
 
 ## Ready to Dive In? 🚀
-The future of web development with UIX is now even more reactive, more efficient, and easier to use than ever before. Whether you’re working on your apps backend logic or working on your highly dynamic frontend, `UIX@ 0.3` has got you covered.
+The future of web development with UIX is now even more reactive, more efficient, and easier to use than ever before. Whether you’re working on your apps backend logic or working on your highly dynamic frontend, [UIX 0.3](https://uix.unyt.org) has got you covered.
 
 So, what are you waiting for? [Install UIX!](https://github.com/unyt-org/uix-install)
 
