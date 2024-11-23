@@ -259,9 +259,9 @@ The same behaviour can be achieved with UIX:
 ```tsx
 // UIX
 
-function MyButton({ count, onClick }) {
+function MyButton({ count, onclick }) {
     return (
-        <button onclick={onClick}>
+        <button onclick={onclick}>
             Clicked {count} times
         </button>
     );
