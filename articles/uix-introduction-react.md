@@ -63,7 +63,7 @@ function MyButton() {
     );
 }
 
-export default function MyApp() {
+export default function App() {
     return (
         <div>
             <h1>Welcome to my app</h1>
@@ -237,7 +237,7 @@ function MyButton({ count, onClick }) {
     );
 }
 
-export default function MyApp() {
+export default function App() {
     const [count, setCount] = useState(0);
 
     function handleClick() {
@@ -267,7 +267,7 @@ function MyButton({ count, onclick }) {
     );
 }
 
-export default function MyApp() {
+export default function App() {
     const count = $(0);
 
     function handleClick() {
@@ -302,7 +302,7 @@ export function IsGreaterThan1({ value }) {
     );
 }
 
-export function App() {
+export default function App() {
     const [random, setRandom] = useState(0);
 
     useEffect(() => {
@@ -338,7 +338,7 @@ export function IsGreaterThan1({ value }) {
     );
 }
 
-export function App() {
+export default function App() {
     const random = $(0);
 
     setInterval(() => random.val = Math.random() * 2, 1000);
