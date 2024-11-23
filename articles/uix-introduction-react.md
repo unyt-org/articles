@@ -55,8 +55,6 @@ component classes are also still used in UIX).
 The basic example from the React quick start guide can be used in UIX without any modifications:
 
 ```tsx
-// entrypoint.tsx
-
 function MyButton() {
   return (
     <button>
