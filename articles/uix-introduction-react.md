@@ -125,6 +125,8 @@ As you can see, UIX supports fragments and all default element attributes.
 Event handlers can also be assigned to attributes like in React (keep in mind that all attributes are written in lowercase, meaning `onClick` becomes `onclick`):
 
 ```tsx
+// UIX
+
 function MyButton() {
   function handleClick() {
     alert('You clicked me!');
@@ -144,6 +146,8 @@ export default <MyButton/>
 
 Let's take a look at a simple React example using `useState`:
 ```tsx
+// React
+
 function MyButton() {
   const [count, setCount] = useState(0);
 
@@ -166,13 +170,15 @@ value.
 UIX does not have the concept of hooks.
 Instead, UIX has *pointers*, which are atomic reactive values
 that can be used everywhere in a UIX app, not just within components.
-A pointer is created with `$$()`, passing in the initial value as an argument.
+A pointer is created with `$()`, passing in the initial value as an argument.
 
 Primitive pointer values are updated by setting the `.val` property of the pointer.
 
 ```tsx
+// UIX
+
 function MyButton() {
-	const count = $$(0); // create new pointer
+	const count = $(0); // create new pointer
   
 	function handleClick() {
 		count.val++ // update pointer value
@@ -198,8 +204,10 @@ You can also use functions like `setInterval` much more
 intuitively in UIX.
 
 ```tsx
+// UIX
+
 function MyButton() {
-	const count = $$(0);
+	const count = $(0);
   
 	// no hooks required!
 	setInterval(() => count.val++, 1000)
@@ -215,12 +223,14 @@ function MyButton() {
 
 ## Sharing data between components
 
-Similar in React, pointers and other values can be
+Similar to React, pointers and other values can be
 passed to other components.
 
-We are using the following React example as a base
+We are using the following React example as a base:
 
 ```tsx
+// React
+
 function MyButton({ count, onClick }) {
   return (
     <button onClick={onClick}>
@@ -249,6 +259,8 @@ export default function MyApp() {
 The same behaviour can be achieved with UIX:
 
 ```tsx
+// UIX
+
 function MyButton({ count, onClick }) {
   return (
     <button onclick={onClick}>
@@ -258,7 +270,7 @@ function MyButton({ count, onClick }) {
 }
 
 export default function MyApp() {
-  const count = $$(0);
+  const count = $(0);
 
   function handleClick() {
     count.val++
@@ -278,75 +290,116 @@ export default function MyApp() {
 ## Conditional rendering
 
 The following React example also works correctly with UIX:
+Let's have a look at a simple React example that displays a different text
+when a randomly generated value is greater or less than 1:
 
 ```tsx
-export function IsGreaterThan1({random}) {
-  return random > 1 ? 
-    <div>Is greater than 1</div> : 
-    <div>Is less than or equal 1</div>
+// React
+
+export function IsGreaterThan1({ value }) {
+    return (
+        <div>
+            {value > 1 ? "Is greater than 1" : "Is less than or equal 1"}
+        </div>
+    );
 }
 
-export default function() {
-	const random = $$(0);
-	setInterval(() => random.val = Math.random() * 2, 500);
-	return (
-		<div>
-			Random value: {random}
-			<IsGreaterThan1 value={random}/>
-		</div>
-	)
+export function App() {
+    const [random, setRandom] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setRandom(Math.random() * 2);
+        }, 1000);
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, []);
+    return (
+        <div>
+            Random value: {random}
+            <IsGreaterThan1 value={random} />
+        </div>
+    );
+}
+
+```
+
+The same result can be achieved with UIX in a much more compact way.
+You can just directly use the setInterval function without wrapping it with useEffect.
+
+```tsx
+// UIX
+
+export function IsGreaterThan1({ value }) {
+    return (
+        <div>
+            {value > 1 ? "Is greater than 1" : "Is less than or equal 1"}
+        </div>
+    );
+}
+
+export function App() {
+    const random = $(0);
+
+    setInterval(() => random.val = Math.random() * 2, 1000);
+
+    return (
+        <div>
+            Random value: {random}
+            <IsGreaterThan1 value={random} />
+        </div>
+    );
 }
 ```
 
-The only caveat is that this only works with static data.
-The content of `<ISGreaterThan1/>` is never updated.
+## Effects
 
-For this reason, UIX provides special transform functions that can be used to transform values from
-one pointer state to another.
-
-The most versatile transform function is the `always` function, which allows you to write
-most reactive state computations with normal JavaScript syntax, like it is possible in react:
+This is a simple example for observing value changes in React with the `useEffect` hook:
 
 ```tsx
-import { always } from "unyt_core/functions.ts";
+// React
 
-export function IsGreaterThan1({random}) {
-  return always(() =>
-	    random > 1 ? 
-        <div>Is greater than 1</div> : 
-        <div>Is less than or equal 1</div>
-  )
-}
+export default () => {
+    const [count, setCount] = useState(0);
 
-export default function() {
-	const random = $$(0);
-	setInterval(() => random.val = Math.random() * 2, 500);
-	return (
-		<div>
-			Random value: {random}
-			<IsGreaterThan1 random={random}/>
-		</div>
-	)
-}
+    useEffect(() => {
+        console.log(`Count updated to: ${count}`);
+    }, [count]); // Dependency array only watches `count`
+
+    return (
+        <div>
+            <h1>Count: {count}</h1>
+            <button onClick={() => setCount((prev) => prev + 1)}>
+                Increment Count
+            </button>
+        </div>
+    );
+};
 ```
 
-In UIX, you should always try to update the minimal amount of data.
-This is why in this case, you could return just one div and make only the content reactive:
+Similar to `useEffect` in React, you can use the `effect` function
+in UIX. In contrast to React, you don't need to explicitly pass the
+dependencies to the function - UIX detects all relevant dependencies automatically.
 
 ```tsx
-export function IsGreaterThan1({random}) {
-  const text = always(() => random > 1 ? "Is greater than 1" : "Is less than or equal 1");
-  return <div>{text}</div>
-}
+// UIX
+
+export default () => {
+    const count = $(0);
+
+    effect(() => {
+        console.log(`Count updated to: ${count}`);
+    });
+
+    return (
+        <div>
+            <h1>Count: {count}</h1>
+            <button onclick={() => count.val++}>
+                Increment Count
+            </button>
+        </div>
+    );
+};
 ```
-
-
-> [!NOTE]
-> The `always` function behaves as excpected in mose cases. There is just one limitation:
-> The returned value must always have the same type.
-> For DOM elements, this means that the value must be an HTML, SVG, MathML element, or a document fragment.
-> To return plain values, wrap them in a document fragment:
->
-> ```tsx
-> always(() => loaded.val ? <div>User data...</div> : <>{"Loading..."}</>)
-> ```
