@@ -56,20 +56,20 @@ The basic example from the React quick start guide can be used in UIX without an
 
 ```tsx
 function MyButton() {
-  return (
-    <button>
-      I'm a button
-    </button>
-  );
+    return (
+        <button>
+            I'm a button
+        </button>
+    );
 }
 
 export default function MyApp() {
-  return (
-    <div>
-      <h1>Welcome to my app</h1>
-      <MyButton/>
-    </div>
-  );
+    return (
+        <div>
+            <h1>Welcome to my app</h1>
+            <MyButton />
+        </div>
+    );
 }
 ```
 
@@ -82,7 +82,7 @@ For example, you can just directly return a div element:
 export default (
     <div>
         <h1>Welcome to my app</h1>
-	    <MyButton/>
+        <MyButton />
     </div>
 );
 ```
@@ -93,26 +93,26 @@ Following the React examples, the following code is also valid UIX:
 
 ```tsx
 const user = {
-	name: 'Hedy Lamarr',
-	imageUrl: 'https://i.imgur.com/yXOvdOSs.jpg',
-	imageSize: 90,
+    name: "Hedy Lamarr",
+    imageUrl: "https://i.imgur.com/yXOvdOSs.jpg",
+    imageSize: 90,
 };
-  
+
 export default function Profile() {
-	return (
-	  <>
-		<h1>{user.name}</h1>
-		<img
-		  class="avatar"
-		  src={user.imageUrl}
-		  alt={'Photo of ' + user.name}
-		  style={{
-			  width: user.imageSize,
-			  height: user.imageSize
-		  }}
-		/>
-	  </>
-	);
+    return (
+        <>
+            <h1>{user.name}</h1>
+            <img
+                class="avatar"
+                src={user.imageUrl}
+                alt={"Photo of " + user.name}
+                style={{
+                    width: user.imageSize,
+                    height: user.imageSize,
+                }}
+            />
+        </>
+    );
 }
 ```
 
@@ -126,18 +126,18 @@ Event handlers can also be assigned to attributes like in React (keep in mind th
 // UIX
 
 function MyButton() {
-  function handleClick() {
-    alert('You clicked me!');
-  }
+    function handleClick() {
+        alert("You clicked me!");
+    }
 
-  return (
-    <button onclick={handleClick}>
-      Click me
-    </button>
-  );
+    return (
+        <button onclick={handleClick}>
+            Click me
+        </button>
+    );
 }
 
-export default <MyButton/>
+export default <MyButton />;
 ```
 
 ## Using state
@@ -147,17 +147,17 @@ Let's take a look at a simple React example using `useState`:
 // React
 
 function MyButton() {
-  const [count, setCount] = useState(0);
+    const [count, setCount] = useState(0);
 
-  function handleClick() {
-    setCount(count + 1);
-  }
+    function handleClick() {
+        setCount(count + 1);
+    }
 
-  return (
-    <button onClick={handleClick}>
-      Clicked {count} times
-    </button>
-  );
+    return (
+        <button onClick={handleClick}>
+            Clicked {count} times
+        </button>
+    );
 }
 ```
 
@@ -176,17 +176,17 @@ Primitive pointer values are updated by setting the `.val` property of the point
 // UIX
 
 function MyButton() {
-	const count = $(0); // create new pointer
-  
-	function handleClick() {
-		count.val++ // update pointer value
-	}
-  
-	return (
-	  <button onclick={handleClick}>
-		Clicked {count} times
-	  </button>
-	);
+    const count = $(0); // create new pointer
+
+    function handleClick() {
+        count.val++; // update pointer value
+    }
+
+    return (
+        <button onclick={handleClick}>
+            Clicked {count} times
+        </button>
+    );
 }
 ```
 
@@ -205,16 +205,16 @@ intuitively in UIX.
 // UIX
 
 function MyButton() {
-	const count = $(0);
-  
-	// no hooks required!
-	setInterval(() => count.val++, 1000)
-  
-	return (
-	  <div>
-		Counter: {count}
-	  </div>
-	);
+    const count = $(0);
+
+    // no hooks required!
+    setInterval(() => count.val++, 1000);
+
+    return (
+        <div>
+            Counter: {count}
+        </div>
+    );
 }
 ```
 
@@ -230,27 +230,27 @@ We are using the following React example as a base:
 // React
 
 function MyButton({ count, onClick }) {
-  return (
-    <button onClick={onClick}>
-      Clicked {count} times
-    </button>
-  );
+    return (
+        <button onClick={onClick}>
+            Clicked {count} times
+        </button>
+    );
 }
 
 export default function MyApp() {
-  const [count, setCount] = useState(0);
+    const [count, setCount] = useState(0);
 
-  function handleClick() {
-    setCount(count + 1);
-  }
+    function handleClick() {
+        setCount(count + 1);
+    }
 
-  return (
-    <div>
-      <h1>Counters that update together</h1>
-      <MyButton count={count} onClick={handleClick} />
-      <MyButton count={count} onClick={handleClick} />
-    </div>
-  );
+    return (
+        <div>
+            <h1>Counters that update together</h1>
+            <MyButton count={count} onClick={handleClick} />
+            <MyButton count={count} onClick={handleClick} />
+        </div>
+    );
 }
 ```
 
@@ -260,27 +260,27 @@ The same behaviour can be achieved with UIX:
 // UIX
 
 function MyButton({ count, onClick }) {
-  return (
-    <button onclick={onClick}>
-      Clicked {count} times
-    </button>
-  );
+    return (
+        <button onclick={onClick}>
+            Clicked {count} times
+        </button>
+    );
 }
 
 export default function MyApp() {
-  const count = $(0);
+    const count = $(0);
 
-  function handleClick() {
-    count.val++
-  }
+    function handleClick() {
+        count.val++;
+    }
 
-  return (
-    <div>
-      <h1>Counters that update together</h1>
-      <MyButton count={count} onclick={handleClick} />
-      <MyButton count={count} onclick={handleClick} />
-    </div>
-  );
+    return (
+        <div>
+            <h1>Counters that update together</h1>
+            <MyButton count={count} onclick={handleClick} />
+            <MyButton count={count} onclick={handleClick} />
+        </div>
+    );
 }
 ```
 
