@@ -40,3 +40,15 @@ export function Counter() {
 ```
 
 UIX handles reactivity automatically. No `useState`, no `setState`, and no extra setup. The count variable updates the DOM as soon as its value changes. It’s simple, clean, and powerful.
+
+## Full-Stack Without the Hassle
+React is powerful for front-end development, but it needs tools like Next.js or a separate backend for full-stack capabilities. UIX combines both worlds seamlessly:
+
+* **Backend**: Built on Deno, a secure, modern JavaScript/TypeScript runtime with native support. No `node_modules` or package clutter.
+* **Frontend**: Uses JUSIX to handle JSX code, converting it into reactive JavaScript. The same logic runs on both server and client, simplifying development.
+
+**Why it matters:**
+
+* **Single Codebase**: Define your logic once. UIX handles both SSR and client-side reactivity.
+* **Cross-Realm Imports**: Share code between front-end and back-end effortlessly. No more context-switching.
+* **Built-In Routing**: UIX simplifies navigation with a router that works out of the box.
