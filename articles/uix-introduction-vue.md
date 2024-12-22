@@ -47,7 +47,7 @@ A Hello World Vue app would look like:
 ```vue
 <!-- src/App.vue -->
 <template>
-<h1>Hello World</h1>
+    <h1>Hello World</h1>
 </template>
 ```
 
@@ -56,7 +56,8 @@ A Hello World Vue app would look like:
 
 A Hello World UIX app would look like:
 ```tsx
-export default <h1>Hello World</h1>
+// frontend/entrypoint.tsx
+export default <h1>Hello World</h1>;
 ```
 </unyt-tab>
 </unyt-tabs>
@@ -82,10 +83,10 @@ In Vue, you can use the `{{ template }}` syntax to insert JavaScript expressions
 ```vue
 <!-- src/App.vue -->
 <script setup>
-	const subject = "World";
+    const subject = "World";
 </script>
 <template>
-	<main>Hello, {{ subject }}!</main>
+    <main>Hello, {{ subject }}!</main>
 </template>
 ```
 
@@ -111,13 +112,13 @@ In Vue, you can use the `v-if` directive to conditionally render HTML:
 ```vue
 <!-- src/App.vue -->
 <script setup>
-	const sayHello = true;
+    const sayHello = true;
 </script>
 <template>
-	<main>
-		<p v-if="sayHello">Hello, World!</p>
-       <p v-else>Something Else!</p>
-	</main>
+    <main>
+        <p v-if="sayHello">Hello, World!</p>
+        <p v-else>Something Else!</p>
+    </main>
 </template>
 ```
 
@@ -128,7 +129,7 @@ In UIX, which uses the JSX syntax, only JavaScript expressions are allowed. As `
 // frontend/entrypoint.tsx
 const sayHello = true;
 export default <main>
-	{ sayHello ? <p>Hello, World!</p> : <p>Something Else!</p> }
+    { sayHello ? <p>Hello, World!</p> : <p>Something Else!</p> }
 </main>;
 ```
 
@@ -137,7 +138,7 @@ An alternative that is less redundant would be:
 // frontend/entrypoint.tsx
 const sayHello = true;
 export default <main>
-	<p>{ sayHello ? "Hello, World!" : "Welcome to UIX!" }</p>
+    <p>{ sayHello ? "Hello, World!" : "Welcome to UIX!" }</p>
 </main>
 ```
 
@@ -155,14 +156,14 @@ In Vue, you can use the `v-for` directive to render elements based on an array:
     ];
 </script>
 <template>
-	<main>
-		<h1>ToDo List</h1>
-		<div v-for="item in data">
+    <main>
+        <h1>ToDo List</h1>
+        <div v-for="item in data">
             {{ item.todo }} - {{ item.done ? "Done" : "Outstanding" }}
         </div>
     </main>
 </template>
- ```
+```
 </unyt-tab>
 <unyt-tab label="UIX" default>
 
@@ -176,8 +177,8 @@ const data = [
 ];
 
 export default <main>
-	<h1>ToDo List</h1>
-	{ data.map(item => <div>{ item.todo } - { item.done ? "Done" : "Outstanding" }</div>) }
+    <h1>ToDo List</h1>
+    { data.map(item => <div>{ item.todo } - { item.done ? "Done" : "Outstanding" }</div>) }
 </main>
 ```
 
@@ -186,7 +187,7 @@ In the example above, each item of the data array gets mapped to a corresponding
 </unyt-tabs>
 
 ## Reactivity
-Vue and UIX share some similarities when it comes to two-way data binding. Both are based on the underyling [JavaScript Proxy System](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
+Vue and UIX share some similarities when it comes to two-way data binding. Both are based on the underlying [JavaScript Proxy System](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
 
 ### Making a Variable Reactive
 <unyt-tabs>
@@ -198,7 +199,7 @@ In Vue, you use `ref()` to make primitive values reactive. For complex data type
 <!-- src/App.vue -->
 <script setup>
     import { ref, reactive } from "vue";
-	 const counter = ref(0);
+    const counter = ref(0);
     const data = reactive([
         { todo: ..., done: ...},
         ...
@@ -216,7 +217,7 @@ const data = $([
     { todo: ..., done: ...},
     ...
 ]);
- ```
+```
 </unyt-tab>
 </unyt-tabs>
 
@@ -297,36 +298,36 @@ With Vue, you would commonly define components with props using the Vue Single F
 ```vue
 <!-- src/components/ListItem.vue -->
 <script setup>
-	const props = defineProps({
-	    todo: String,
-       done: boolean
-	});
+    const props = defineProps({
+        todo: String,
+        done: boolean
+    });
 </script>
 
 <template>
-	<div>{{ props.todo }} - {{ props.done ? "Done" : "Outstanding" }}</div>
+    <div>{{ props.todo }} - {{ props.done ? "Done" : "Outstanding" }}</div>
 </template>
 
 <style>
-	div { font-size: 0.9em; }
+    div { font-size: 0.9em; }
 </style>
 ```
 </unyt-tab>
 <unyt-tab label="UIX" default>
 
-With UIX, you use the already introduced TSX (TypeScript) file tyoe to define execution logic, HTML content and styles in a single file:
+With UIX, you use the already introduced TSX (TypeScript) file type to define execution logic, HTML content, and styles in a single file:
 ```tsx
 // frontend/components/ListItem.tsx
 import { Component } from "uix/components/Component.ts";
 
 @template(function(props) {
-	return <div>{ props.todo } - { props.done ? "Done" : "Outstanding" }</div>;
+    return <div>{ props.todo } - { props.done ? "Done" : "Outstanding" }</div>;
 })
 @style(css `
     div { font-size: 0.9em; }
 `)
 export class ListItem extends Component<{
-	 todo: string,
+    todo: string,
     done: boolean
 }> {
     /* Place per-component-instance logic, lifecycle hooks,
@@ -334,7 +335,7 @@ export class ListItem extends Component<{
 };
 ```
 
-In UIX, components are plain TypeScript objects that inherit from the `Component` base class. They can optionally be decorated with a `template` and a `style`. Props are declared in the class declaration and can be used inside the class, the template and the style.
+In UIX, components are plain TypeScript objects that inherit from the `Component` base class. They can optionally be decorated with a `template` and a `style`. Props are declared in the class declaration and can be used inside the class, the template, and the style.
 </unyt-tab>
 </unyt-tabs>
 
@@ -348,7 +349,7 @@ In Vue, you import components and use the `v-bind` (abbreviated as `:`) directiv
 <script setup>
     import ListItem from "./components/ListItem.vue";
     import { reactive } from "vue";
-	const example = reactive({ todo: "Learn UIX", done: true });
+    const example = reactive({ todo: "Learn UIX", done: true });
 </script>
 <template>
     <ListItem v-bind:todo="example.todo" :done="example.done" />
@@ -379,7 +380,7 @@ In Vue, you use dedicated event emissions and event listeners to communicate act
 <script setup>
     // ...
     const emit = defineEmits(["delete"]);
-</script setup>
+</script>
 <template>
     <div>
         ...
@@ -391,7 +392,7 @@ In Vue, you use dedicated event emissions and event listeners to communicate act
 ```vue
 <!-- src/App.vue -->
 <script setup>
-	import ListItem from "./components/ListItem.vue";
+    import ListItem from "./components/ListItem.vue";
     // ...
     function handleDeletion(todo, done) {
         // TODO: Process Deletion
@@ -406,6 +407,7 @@ In Vue, you use dedicated event emissions and event listeners to communicate act
 <unyt-tab label="UIX" default>
 
 In UIX, there is no dedicated event system. In fact, you can easily resemble Vue's event functionality using a pure standardized JavaScript feature – Callbacks:
+
 ```tsx
 // frontend/components/ListItem.tsx
 import { Component } from "uix/components/Component.ts";
@@ -420,7 +422,7 @@ import { Component } from "uix/components/Component.ts";
     div { font-size: 0.9em; }
 `)
 export class ListItem extends Component<{
-	 // ...
+    // ...
     ondelete: (todo: string, done: boolean) => void
 }> {
     /* Place per-component-instance logic, lifecycle hooks,
@@ -448,6 +450,7 @@ export default <ListItem todo={ example.todo } done={ example.done } ondelete={ 
 ## Additional Features
 ### Routing
 For Vue, you use one of the external routing libraries. UIX supports Single-Page Application Routing out of the box and features a versatile routing system. In its simplest form, it performs map-based routing:
+
 ```tsx
 // frontend/entrypoint.tsx
 
@@ -461,6 +464,7 @@ export default {
         </main>
 };
 ```
+
 ```tsx
 // frontend/login.tsx
 export default <main>
@@ -469,6 +473,7 @@ export default <main>
 ```
 
 Beyond that, UIX also supports file-based routing (although discouraged for larger projects) and dynamic route processing. Links can be rendered using the `<a href>` tag.
+
 ### Backend Rendering
 To use the [integrated UIX backend rendering](https://docs.unyt.org/manual/uix/rendering-methods), with hydration enabled by default, do not use `frontend/entrypoint.tsx` but `backend/entrypoint.tsx` to render your HTML statically on the server. The syntax remains the same. To keep your projects intuitively organized, move your components from `frontend/...` to `backend/...` or `common/...`.
 
@@ -508,15 +513,20 @@ UIX includes permanent data storage mechanisms that obviate the need for a datab
    export const users = $({
        example: [...]
    });
-  ```
+   ```
+
 2. Annotate it with the `eternal ??` label
    ```tsx
    // backend/data.ts
    export const users = eternal ?? $({
        example: [...]
    });
-  ```
+   ```
 
-Now, data is permanently stored across backend restarts. Execute `uix --clear` the stored records in your database.
+Now, data is permanently stored across backend restarts. Execute `uix --clear` to clear the stored records in your database.
 
-Marking a pointer on the frontend with `eternal ??` will persist it in the device's `localStorage`. As opposed to JSON, the underlying DATEX technology allows you to store any arbitary value, including primitives, maps, class instances, callbacks, HTML elements and more.
+Marking a pointer on the frontend with `eternal ??` will persist it in the device's `localStorage`. As opposed to JSON, the underlying DATEX technology allows you to store any arbitrary value, including primitives, maps, class instances, callbacks, HTML elements, and more.
+
+## This is just the beginning
+
+UIX and its adjacent projects have a lot more to offer. Delve into the [documentation](https://docs.unyt.org) to find examples and learn more about the wholistic full-stack framework created by [unyt.org](https://unyt.org).
