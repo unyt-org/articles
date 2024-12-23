@@ -1,12 +1,12 @@
 <!--
-	{
-		description: "An introduction to the UIX framework for Vue.js developers",
-		preview: "res/uix_banner.png",
-		date: ~2025-11-01~,
-		tag: "Developer",
-		author: "unyt.org",
-		authorRef: https://unyt.org
-	};
+    {
+        description: "An introduction to the UIX framework for Vue.js developers",
+        preview: "res/uix_banner.png",
+        date: ~2025-11-01~,
+        tag: "Developer",
+        author: "unyt.org",
+        authorRef: https://unyt.org
+    };
 -->
 
 
@@ -44,7 +44,7 @@ When you visit your server's main page, this is the first thing that is rendered
 <unyt-tab label="Vue">
 
 A Hello World Vue app would look like:
-```vue
+```html
 <!-- src/App.vue -->
 <template>
     <h1>Hello World</h1>
@@ -62,8 +62,8 @@ export default <h1>Hello World</h1>;
 </unyt-tab>
 </unyt-tabs>
 
-## JSX: Dynamic Data in HTML
-[JSX](https://legacy.reactjs.org/docs/introducing-jsx.html) is a syntax extension for JavaScript. It is also used in [React](https://react.dev) and allows developers to define HTML code right inside JavaScript / TypeScript. The special thing is that said HTML code will not be a bare string but an actual HTMLElement instance that can be added to the DOM. It is therefore possible to assign HTML elements to variables like so:
+## JSX: Dynamic data in HTML
+[JSX](https://legacy.reactjs.org/docs/introducing-jsx.html) is a syntax extension for JavaScript. It is also used in [React](https://react.dev) and allows developers to define HTML code right inside JavaScript / TypeScript. The special thing is that JSX expressions evaluate to actual HTMLElement instances that can be added to the DOM or. It is therefore possible to assign HTML elements to variables like so:
 ```tsx
 const xyz = <div>
     <span>I will be used somewhere else later</span>
@@ -75,7 +75,7 @@ To create an HTML element with JSX, one root element will always be required (e.
 const xyz = "I will be used somewhere else later";
 ```
 
-### Inserting TypeScript Data into HTML
+### Inserting TypeScript data into HTML
 <unyt-tabs>
 <unyt-tab label="Vue">
 
@@ -96,7 +96,6 @@ In Vue, you can use the `{{ template }}` syntax to insert JavaScript expressions
 With the JSX syntax that is used in UIX, you only use one curly brace on each side:
 ```tsx
 // frontend/entrypoint.tsx
-
 const subject = "World";
 export default <main>Hello, { subject }!</main>;
 ```
@@ -129,7 +128,11 @@ In UIX, which uses the JSX syntax, only JavaScript expressions are allowed. As `
 // frontend/entrypoint.tsx
 const sayHello = true;
 export default <main>
-    { sayHello ? <p>Hello, World!</p> : <p>Something Else!</p> }
+    { 
+        sayHello ? 
+            <p>Hello, World!</p> : 
+            <p>Something Else!</p>
+    }
 </main>;
 ```
 
@@ -138,7 +141,13 @@ An alternative that is less redundant would be:
 // frontend/entrypoint.tsx
 const sayHello = true;
 export default <main>
-    <p>{ sayHello ? "Hello, World!" : "Welcome to UIX!" }</p>
+    <p>
+        { 
+            sayHello ? 
+                "Hello, World!" :
+                "Welcome to UIX!"
+        }
+    </p>
 </main>
 ```
 
@@ -146,18 +155,18 @@ export default <main>
 <unyt-tabs>
 <unyt-tab label="Vue">
 
-In Vue, you can use the `v-for` directive to render elements based on an array:
-```vue
+In Vue, you can use the `v-for` directive to render elements based on an iterable (e.g. Array or Set):
+```html
 <!-- src/App.vue -->
 <script setup>
     const data = [
         { todo: "Learn UIX", done: true },
-        { todo: "Become unyt.org member", done: true }
+        { todo: "Become a unyt.org member", done: true }
     ];
 </script>
 <template>
     <main>
-        <h1>ToDo List</h1>
+        <h1>Todo List</h1>
         <div v-for="item in data">
             {{ item.todo }} - {{ item.done ? "Done" : "Outstanding" }}
         </div>
@@ -167,18 +176,22 @@ In Vue, you can use the `v-for` directive to render elements based on an array:
 </unyt-tab>
 <unyt-tab label="UIX" default>
 
-In UIX, you use the standard JavaScript function [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) to convert an array of items into an array of HTML elements. UIX will automatically render an array of HTML elements as multiple consecutive elements in the browser:
+In UIX, you can use the standard JavaScript function [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) to convert an array of items into an array of HTML elements. UIX will automatically render an array of HTML elements as multiple consecutive elements in the browser:
 
 ```tsx
 // frontend/entrypoint.tsx
 const data = [
     { todo: "Learn UIX", done: true },
-    { todo: "Become unyt.org member", done: true }
+    { todo: "Become a unyt.org member", done: true }
 ];
 
 export default <main>
     <h1>ToDo List</h1>
-    { data.map(item => <div>{ item.todo } - { item.done ? "Done" : "Outstanding" }</div>) }
+    { data.map(item => 
+        <div>
+        { item.todo } - { item.done ? "Done" : "Outstanding" }
+        </div>
+    ) }
 </main>
 ```
 
@@ -187,15 +200,15 @@ In the example above, each item of the data array gets mapped to a corresponding
 </unyt-tabs>
 
 ## Reactivity
-Vue and UIX share some similarities when it comes to two-way data binding. Both are based on the underlying [JavaScript Proxy System](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
+Vue and UIX share some similarities when it comes to two-way data binding. Both are based on the underlying [JavaScript Proxy System](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy).
 
-### Making a Variable Reactive
+### Creating reactive values
 <unyt-tabs>
 <unyt-tab label="Vue">
 
 In Vue, you use `ref()` to make primitive values reactive. For complex data types on the other hand, you use `reactive()`:
 
-```vue
+```html
 <!-- src/App.vue -->
 <script setup>
     import { ref, reactive } from "vue";
@@ -222,12 +235,12 @@ const data = $([
 </unyt-tabs>
 
 ### Two-way data binding
-Certain elements like `input` support bidirectional data binding.
+Certain elements like `<input>` support bidirectional data binding.
 <unyt-tabs>
 <unyt-tab label="Vue">
 
 With Vue, you can use the `v-model` directive to bind a reactive variable bidirectionally:
-```vue
+```html
 <!-- src/App.vue -->
 <script setup>
     import { ref } from "vue";
@@ -235,7 +248,7 @@ With Vue, you can use the `v-model` directive to bind a reactive variable bidire
 </script>
 <template>
     <main>
-        Your name: <input type="text" v-model="name"></input> <br>
+        Your name: <input type="text" v-model="name"/>
         (Your name in uppercase: {{ name.toUpperCase() }})
     </main>
 </template>
@@ -246,10 +259,9 @@ With Vue, you can use the `v-model` directive to bind a reactive variable bidire
 With UIX, you use HTML standard attribute names instead of `v-model` attributes to bind data bidirectionally:
 ```tsx
 // frontend/entrypoint.tsx
-
 const name = $("");
 export default <main>
-    Your name: <input type="text" value={ name } /> <br />
+    Your name: <input type="text" value={ name }/>
     (Your name in uppercase: { name.toUpperCase() })
 </main>;
 ```
@@ -261,7 +273,7 @@ export default <main>
 <unyt-tab label="Vue">
 
 In Vue, you use the `computed()` function to make a variable have a certain value that is updated whenever its dependent data changes:
-```vue
+```html
 <!-- src/App.vue -->
 <script setup>
     import { ref, computed } from "vue";
@@ -273,20 +285,15 @@ In Vue, you use the `computed()` function to make a variable have a certain valu
 </unyt-tab>
 <unyt-tab label="UIX" default>
 
-In UIX, you use the all-in-one reactivity function `$()` to declare any kind of reactively recomputable expression:
+In UIX, you use the `always` function to declare any kind of reactively recomputable expression:
 ```tsx
 // frontend/entrypoint.tsx
 const a = $(39);
 const b = $(3);
-const c = $(a + b);
+const c = always(a + b);
 ```
 The UIX compiler automatically configures `c` to be updated whenever `a` or `b` changes.
 
-If you did not want to use UIX-specific compiler functionality, you could have written:
-```tsx
-const c = always(() => a + b);
-```
-which would have done a similar thing and is an alternative way to express the same.
 </unyt-tab>
 </unyt-tabs>
 
@@ -295,7 +302,7 @@ which would have done a similar thing and is an alternative way to express the s
 <unyt-tab label="Vue">
 
 With Vue, you would commonly define components with props using the Vue Single File Component (SFC) Format:
-```vue
+```html
 <!-- src/components/ListItem.vue -->
 <script setup>
     const props = defineProps({
@@ -320,31 +327,32 @@ With UIX, you use the already introduced TSX (TypeScript) file type to define ex
 // frontend/components/ListItem.tsx
 import { Component } from "uix/components/Component.ts";
 
-@template(function(props) {
-    return <div>{ props.todo } - { props.done ? "Done" : "Outstanding" }</div>;
-})
-@style(css `
+@template(props =>
+    <div>
+        { props.todo } - { props.done ? "Done" : "Outstanding" }
+    </div>;
+)
+@style(css`
     div { font-size: 0.9em; }
 `)
 export class ListItem extends Component<{
     todo: string,
     done: boolean
 }> {
-    /* Place per-component-instance logic, lifecycle hooks,
-       temporary variables, methods etc. here. */
+    /* Place component logic, lifecycle hooks, instance members, methods etc. here. */
 };
 ```
 
-In UIX, components are plain TypeScript objects that inherit from the `Component` base class. They can optionally be decorated with a `template` and a `style`. Props are declared in the class declaration and can be used inside the class, the template, and the style.
+In UIX, components are plain TypeScript objects that inherit from the `Component` base class whose parent is the native `HTMElement`. They can optionally be decorated with `@template` and `@style`. Props are declared in the class declaration and can be used inside the class, the template, and the style.
 </unyt-tab>
 </unyt-tabs>
 
-### Using Components and Binding Values to Attributes/Props
+### Using components and binding values to attributes/props
 <unyt-tabs>
 <unyt-tab label="Vue">
 
-In Vue, you import components and use the `v-bind` (abbreviated as `:`) directive to render them with props:
-```vue
+In Vue, you import components and use the `v-bind` (abbreviated as `:`) directive to render components with props:
+```html
 <!-- src/App.vue -->
 <script setup>
     import ListItem from "./components/ListItem.vue";
@@ -375,7 +383,7 @@ export default <ListItem todo={ example.todo } done={ example.done } />;
 
 In Vue, you use dedicated event emissions and event listeners to communicate action from a component to its parent:
 
-```vue
+```html
 <!-- src/components/ListItem.vue -->
 <script setup>
     // ...
@@ -389,7 +397,7 @@ In Vue, you use dedicated event emissions and event listeners to communicate act
 </template>
 ```
 
-```vue
+```html
 <!-- src/App.vue -->
 <script setup>
     import ListItem from "./components/ListItem.vue";
@@ -406,7 +414,7 @@ In Vue, you use dedicated event emissions and event listeners to communicate act
 </unyt-tab>
 <unyt-tab label="UIX" default>
 
-In UIX, there is no dedicated event system. In fact, you can easily resemble Vue's event functionality using a pure standardized JavaScript feature – Callbacks:
+In UIX, there is no dedicated event system. In fact, you can easily resemble Vue's event functionality using a pure standardized JavaScript feature – callbacks:
 
 ```tsx
 // frontend/components/ListItem.tsx
@@ -415,22 +423,17 @@ import { Component } from "uix/components/Component.ts";
 @template(function(props) {
     return <div>
         ...
-        <button onclick={ props.ondelete(props.todo, props.done) }>Delete</button>
+        <button onclick={ props.onDelete(props.todo, props.done) }>Delete</button>
     </div>;
 })
-@style(css `
-    div { font-size: 0.9em; }
-`)
 export class ListItem extends Component<{
-    // ...
-    ondelete: (todo: string, done: boolean) => void
-}> {
-    /* Place per-component-instance logic, lifecycle hooks,
-       temporary variables, methods etc. here. */
-};
+    todo: string,
+    done: boolean,
+    onDelete: (todo: string, done: boolean) => void
+}> { }
 ```
 
-Simply specify a component prop like `ondelete` as a callback function. TypeScript allows you to strictly type the signature of this function. Then, use it in the parent environment:
+Simply specify a component prop like `onDelete` as a callback function. TypeScript allows you to strictly type the signature of this function. Then, use it in the parent environment:
 
 ```tsx
 // frontend/entrypoint.tsx
@@ -442,7 +445,7 @@ function handleDeletion(todo: string, done: boolean) {
     // TODO: Process Deletion
 }
 
-export default <ListItem todo={ example.todo } done={ example.done } ondelete={ handleDeletion }/>;
+export default <ListItem todo={ example.todo } done={ example.done } onDelete={ handleDeletion }/>;
 ```
 </unyt-tab>
 </unyt-tabs>
