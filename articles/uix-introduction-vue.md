@@ -109,7 +109,7 @@ export default <main>Hello, { subject }!</main>;
 <unyt-tab label="Vue">
 
 In Vue, you can use the `v-if` directive to conditionally render HTML:
-```vue
+```html
 <!-- src/App.vue -->
 <script setup>
     const sayHello = true;
