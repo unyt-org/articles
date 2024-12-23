@@ -80,7 +80,7 @@ const xyz = "I will be used somewhere else later";
 <unyt-tab label="Vue">
 
 In Vue, you can use the `{{ template }}` syntax to insert JavaScript expressions into HTML:
-```vue
+```html
 <!-- src/App.vue -->
 <script setup>
     const subject = "World";
