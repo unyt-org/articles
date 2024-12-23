@@ -452,7 +452,7 @@ export default <ListItem todo={ example.todo } done={ example.done } onDelete={ 
 
 ## Additional Features
 ### Routing
-For Vue, you use one of the external routing libraries. UIX supports Single-Page Application Routing out of the box and features a versatile routing system. In its simplest form, it performs map-based routing:
+For Vue, you use one of the external routing libraries. UIX supports Single and Multi-Page routing out of the box and features a versatile routing system. In its simplest form, it performs map-based routing:
 
 ```tsx
 // frontend/entrypoint.tsx
@@ -460,10 +460,10 @@ For Vue, you use one of the external routing libraries. UIX supports Single-Page
 export default {
     "/login": () => import("./login.tsx"),
     "/todos": () => import("./todos.tsx"),
-    "/:userId/info": (_, params) =>
+    "/:userId/info": (_, {userId}) =>
         <main>
             <h1>User Information</h1>
-            For User ID { params.userId }
+            For User ID { userId }
         </main>
 };
 ```
@@ -475,12 +475,12 @@ export default <main>
 </main>
 ```
 
-Beyond that, UIX also supports file-based routing (although discouraged for larger projects) and dynamic route processing. Links can be rendered using the `<a href>` tag.
+Beyond that, UIX also supports file-based routing (although discouraged for larger projects) and dynamic route processing.
 
 ### Backend Rendering
-To use the [integrated UIX backend rendering](https://docs.unyt.org/manual/uix/rendering-methods), with hydration enabled by default, do not use `frontend/entrypoint.tsx` but `backend/entrypoint.tsx` to render your HTML statically on the server. The syntax remains the same. To keep your projects intuitively organized, move your components from `frontend/...` to `backend/...` or `common/...`.
+To use the [integrated UIX backend rendering](https://docs.unyt.org/manual/uix/rendering-methods), with hydration enabled by default, you can use thhe `backend/entrypoint.tsx` to prerender your HTML on the server. The syntax remains the same.
 
-### Realtime Data Synchronization
+### Realtime data synchronization
 To abstract away the necessity of manually transferring realtime data across devices using JSON, BSON, Remote Procedure Calls, WebSockets and similar technologies, UIX was designed to streamline this process deeply at its core. It employs a new realtime-data-centric communication protocol called [DATEX](https://docs.unyt.org/manual/datex) – a technology developed and implemented by the same [organization that created UIX](https://unyt.org).
 
 Based on this underlying technology, UIX provides a feature called [Cross Realm Imports](https://docs.unyt.org/manual/uix/cross-realm-imports).
@@ -504,13 +504,13 @@ Based on this underlying technology, UIX provides a feature called [Cross Realm 
    </main>
    ```
 
-Now, the variable is **reactively synchronized across all website visitors in realtime** with bidirectional data binding. You can also export functions and call them anywhere else. Note that you must always `await` those variables and functions if you wanted to use and process them in JavaScript/TypeScript – behind the curtain, they are network transmissions after all.
+Now, the variable is **synchronized across all website visitors in realtime** with bidirectional data binding. You can also export functions from the backend and call them anywhere else. Note that function calls are always asynchronous since they are network transmissions after all. Make sure to use `await` to get the return value of these calls.
 
-### Databases
+### Data storage
 
-UIX includes permanent data storage mechanisms that obviate the need for a database.
+UIX includes permanent data storage mechanisms that eliminate the need for an external database.
 
-1. Create a reactive value (DATEX calls it a "pointer")
+1. Create a reactive value
    ```tsx
    // backend/data.ts
    export const users = $({
@@ -518,7 +518,7 @@ UIX includes permanent data storage mechanisms that obviate the need for a datab
    });
    ```
 
-2. Annotate it with the `eternal ??` label
+2. Annotate it with the `eternal` label
    ```tsx
    // backend/data.ts
    export const users = eternal ?? $({
@@ -528,8 +528,8 @@ UIX includes permanent data storage mechanisms that obviate the need for a datab
 
 Now, data is permanently stored across backend restarts. Execute `uix --clear` to clear the stored records in your database.
 
-Marking a pointer on the frontend with `eternal ??` will persist it in the device's `localStorage`. As opposed to JSON, the underlying DATEX technology allows you to store any arbitrary value, including primitives, maps, class instances, callbacks, HTML elements, and more.
+Marking a pointer on the frontend with `eternal` will persist it in the device's `localStorage`. As opposed to JSON, the underlying DATEX technology allows you to store any arbitrary value, including primitives, maps, class instances, callbacks, HTML elements, and more.
 
-## This is just the beginning
+## This is just the beginning...
 
-UIX and its adjacent projects have a lot more to offer. Delve into the [documentation](https://docs.unyt.org) to find examples and learn more about the wholistic full-stack framework created by [unyt.org](https://unyt.org).
+UIX and its adjacent projects have a lot more to offer. Check out our [developer documentation](https://docs.unyt.org) to learn more about UIX and the future of web development.
