@@ -4,8 +4,8 @@
 		preview: "res/uix_banner.png",
 		date: ~2023-11-3~,
 		tag: "Developer",
-		author: "unyt.org",
-		authorRef: https://unyt.org
+		author: "Benedikt Strehle",
+		authorRef: https://github.com/benStre
 	};
 -->
 
