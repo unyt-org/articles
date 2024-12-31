@@ -10,7 +10,7 @@
 -->
 
 
-# Introducing: Experimental embedded JSX reactivity and the $() syntax
+# Introducing: Experimental embedded JSX reactivity
 
 *The features described in this article are still in an early stage of development. The behaviour might change significantly in the future and the functionality could be completely removed.*
 
