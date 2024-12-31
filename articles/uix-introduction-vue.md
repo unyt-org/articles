@@ -1,7 +1,7 @@
 <!--
     {
         description: "An introduction to the UIX framework for Vue.js developers",
-        preview: "res/uix_banner.png",
+        preview: "res/coming-from-vue.png",
         date: ~2025-11-01~,
         tag: "Developer",
         author: "unyt.org",
