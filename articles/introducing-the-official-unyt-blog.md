@@ -4,8 +4,8 @@
 		preview: "res/unyt_banner.png",
 		date: ~2023-04-15~,
 		tag: "Community",
-		author: "unyt.org",
-		authorRef: https://unyt.org
+		author: "Jonas Strehle",
+		authorRef: https://github.com/jonasstrehle
 	};
 -->
 
