@@ -4,8 +4,8 @@
 		preview: "res/unyt-auth.png",
 		date: ~2023-12-10~,
 		tag: "Community",
-		author: "unyt Auth",
-		authorRef: https://auth.unyt.org
+		author: "Jonas Strehle",
+		authorRef: https://github.com/jonasstrehle
 	};
 -->
 
