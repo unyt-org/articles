@@ -4,8 +4,8 @@
 		preview: "res/unyt-land.png",
 		date: ~2023-10-20~,
 		tag: "Developer",
-		author: "unyt.land",
-		authorRef: https://unyt.land
+		author: "Jonas Strehle",
+		authorRef: https://github.com/jonasstrehle
 	};
 -->
 
