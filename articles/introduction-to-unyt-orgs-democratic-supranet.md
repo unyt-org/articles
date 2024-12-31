@@ -4,8 +4,8 @@
 		preview: "res/header-democracy.png",
 		date: ~2023-07-18~,
 		tag: "Community",
-		author: "unyt.org",
-		authorRef: https://unyt.org
+		author: "Jonas Strehle",
+		authorRef: https://github.com/jonasstrehle
 	};
 -->
 
