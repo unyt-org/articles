@@ -1,7 +1,7 @@
 <!--
 	{
 		description: "Why we don't need React (But JSX is cool) - An introduction to the UIX framework",
-		preview: "res/uix_banner.png",
+		preview: "res/uix-banner.png",
 		date: ~2023-04-26~,
 		tag: "Developer",
 		author: "Benedikt Strehle",

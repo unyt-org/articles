@@ -1,7 +1,7 @@
 <!--
 	{
 		description: "Keep up to date with the latest developments around the unyt organization. From devlog, to security updates, and other information - everything will be covered here!",
-		preview: "res/unyt_banner.png",
+		preview: "res/unyt-banner.png",
 		date: ~2023-04-15~,
 		tag: "Community",
 		author: "Jonas Strehle",
@@ -14,7 +14,7 @@
 
 [unyt.blog](https://unyt.blog) serves as the official platform for publishing information and updates related to the unyt ecosystem. This platform allows for the wide dissemination of information regarding *development status*, *bugfixes*, *milestones*, *releases*, and other *crucial updates* about unyt.
 
-<!-- ![unyt.org](res/unyt_banner.png) -->
+<!-- ![unyt.org](res/unyt-banner.png) -->
 
  As a platform for sharing information, [unyt.blog](https://unyt.blog) serves as a vital tool for keeping the wide public informed and up-to-date. As the **unyt project** is still in work in progress and continuously grows and evolves, it is essential that members of the community are kept informed of the latest developments. This is where this blog becomes an indispensable resource. We believe that an open and transparent communication is crucial for building trust with the community and fostering a sense of collaboration and shared ownership.
 

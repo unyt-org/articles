@@ -1,7 +1,7 @@
 <!--
 	{
 		description: "",
-		preview: "res/uix_banner_jsx.png",
+		preview: "res/uix-banner-jsx.png",
 		date: ~2023-12-04~,
 		tag: "Developer",
 		author: "Benedikt Strehle",

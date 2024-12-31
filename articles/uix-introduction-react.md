@@ -1,7 +1,7 @@
 <!--
 	{
 		description: "An introduction to the UIX framework for React developers",
-		preview: "res/uix_banner.png",
+		preview: "res/coming-from-react.png",
 		date: ~2023-11-3~,
 		tag: "Developer",
 		author: "Benedikt Strehle",
