@@ -35,6 +35,7 @@ uix -l
 ```
 to start a live server instance with hot-reloading enabled.
 
+</unyt-tab>
 </unyt-tabs>
 
 ## App.vue
