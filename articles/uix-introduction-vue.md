@@ -43,7 +43,7 @@ When you visit your server's main page, this is the first thing that is rendered
 <unyt-tabs>
 <unyt-tab label="Vue">
 
-A Hello World Vue app would look like:
+A Hello World Vue app would look like this:
 ```html
 <!-- src/App.vue -->
 <template>
@@ -54,7 +54,7 @@ A Hello World Vue app would look like:
 </unyt-tab>
 <unyt-tab label="UIX" default>
 
-A Hello World UIX app would look like:
+A Hello World UIX app would look like this:
 ```tsx
 // frontend/entrypoint.tsx
 export default <h1>Hello World</h1>;
@@ -63,7 +63,7 @@ export default <h1>Hello World</h1>;
 </unyt-tabs>
 
 ## JSX: Dynamic data in HTML
-[JSX](https://legacy.reactjs.org/docs/introducing-jsx.html) is a syntax extension for JavaScript. It is also used in [React](https://react.dev) and allows developers to define HTML code right inside JavaScript / TypeScript. The special thing is that JSX expressions evaluate to actual HTMLElement instances that can be added to the DOM or. It is therefore possible to assign HTML elements to variables like so:
+[JSX](https://legacy.reactjs.org/docs/introducing-jsx.html) is a syntax extension for JavaScript. It is also used in [React](https://react.dev) and allows developers to define HTML code right inside JavaScript / TypeScript. The special thing is that JSX expressions evaluate to actual HTMLElement instances that can be added to the DOM. It is therefore possible to assign HTML elements to variables like so:
 ```tsx
 const xyz = <div>
     <span>I will be used somewhere else later</span>
