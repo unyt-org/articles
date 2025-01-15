@@ -56,7 +56,7 @@ In December, German Tech YouTuber [Loris Galler](https://www.youtube.com/@lorisg
 get some advice for a [new video](https://youtu.be/b7fJfbItzdM?si=RPvp_r3Qs3RZLkGH) he wanted to create
 about UIX and DATEX – technologies which he named to be "game changers" for modern web development.
 His style is very diverting, studded with silly jokes and absurdly manages to be informative all
-the while. If you happen to understand the German language, a [subscription his channel](https://www.youtube.com/@lorisgaller?sub_confirmation=1)
+the while. If you happen to understand the German language, a [subscription to his channel](https://www.youtube.com/@lorisgaller?sub_confirmation=1)
 is a must.
 
 ## Outlook for 2025
