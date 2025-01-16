@@ -1,8 +1,8 @@
 <!--
 	{
 		description: "A short recap of the last year", 
-		preview: "res/header-democracy.png",
-		date: ~2025-01-15~,
+		preview: "res/summary-2024.png",
+		date: ~2025-01-16~,
 		tag: "Community",
 		author: "Adrian Siebing",
 		authorRef: https://github.com/asbng
