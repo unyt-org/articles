@@ -291,9 +291,9 @@ In UIX, you use the `always` function to declare any kind of reactively recomput
 // frontend/entrypoint.tsx
 const a = $(39);
 const b = $(3);
-const c = always(a + b);
+const c = always(() => a + b);
 ```
-The UIX compiler automatically configures `c` to be updated whenever `a` or `b` changes.
+UIX automatically configures `c` to be updated whenever `a` or `b` changes.
 
 </unyt-tab>
 </unyt-tabs>
