@@ -64,7 +64,7 @@ export default <h1>Hello World</h1>;
 </unyt-tabs>
 
 ## JSX: Dynamic data in HTML
-[JSX](https://legacy.reactjs.org/docs/introducing-jsx.html) is a syntax extension for JavaScript. It is also used in [React](https://react.dev) and allows developers to define [DOM](https://developer.mozilla.org/de/docs/Web/API/Document_Object_Model) (HTML syntax) right inside JavaScript / TypeScript. The special thing is that JSX expressions evaluate to actual HTMLElement instances that can be added to the DOM. It is therefore possible to assign HTML elements to variables like so:
+[JSX](https://legacy.reactjs.org/docs/introducing-jsx.html) is a syntax extension for JavaScript. It is also used in [React](https://react.dev) and allows developers to define [DOM](https://developer.mozilla.org/de/docs/Web/API/Document_Object_Model) (HTML syntax) right inside JavaScript and TypeScript modules. The special thing is that JSX expressions evaluate to actual HTMLElement instances that can be added to the DOM. It is therefore possible to assign HTML elements to variables like so:
 ```tsx
 const xyz = <div>
     <span>I will be used somewhere else later</span>
