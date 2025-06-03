@@ -2,10 +2,10 @@
     {
         description: "An introduction to the UIX framework for Vue.js developers",
         preview: "res/coming-from-vue.png",
-        date: ~2025-11-01~,
+        date: ~2025-06-03~,
         tag: "Developer",
-        author: "unyt.org",
-        authorRef: https://unyt.org
+        author: "Adrian Siebing",
+        authorRef: https://github.com/asbng
     };
 -->
 
