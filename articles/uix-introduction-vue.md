@@ -479,7 +479,7 @@ export default <main>
 Beyond that, UIX also supports file-based routing (although discouraged for larger projects) and dynamic route processing.
 
 ### Backend Rendering
-To use the [integrated UIX backend rendering](https://docs.unyt.org/manual/uix/rendering-methods), with hydration enabled by default, you can use thhe `backend/entrypoint.tsx` to prerender your HTML on the server. The syntax remains the same.
+To use the [integrated UIX backend rendering](https://docs.unyt.org/manual/uix/rendering-methods), with hydration enabled by default, you can use the `backend/entrypoint.tsx` to prerender your HTML on the server. The syntax remains the same.
 
 ### Realtime data synchronization
 To abstract away the necessity of manually transferring realtime data across devices using JSON, BSON, Remote Procedure Calls, WebSockets and similar technologies, UIX was designed to streamline this process deeply at its core. It employs a new realtime-data-centric communication protocol called [DATEX](https://docs.unyt.org/manual/datex) – a technology developed and implemented by the same [organization that created UIX](https://unyt.org).
