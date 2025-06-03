@@ -121,6 +121,7 @@ In Vue, you can use the `v-if` directive to conditionally render HTML:
     </main>
 </template>
 ```
+</unyt-tab>
 
 <unyt-tab label="UIX" default>
 
@@ -151,6 +152,8 @@ export default <main>
     </p>
 </main>
 ```
+</unyt-tab>
+</unyt-tabs>
 
 ### Loops
 <unyt-tabs>
