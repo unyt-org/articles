@@ -263,7 +263,7 @@ With UIX, you use HTML standard attribute names instead of `v-model` attributes 
 const name = $("");
 export default <main>
     Your name: <input type="text" value={ name }/>
-    (Your name in uppercase: { name.toUpperCase() })
+    (Your name in uppercase: { val(name).toUpperCase() })
 </main>;
 ```
 </unyt-tab>
