@@ -207,7 +207,7 @@ Vue and UIX share some similarities when it comes to two-way data binding. Both 
 <unyt-tabs>
 <unyt-tab label="Vue">
 
-In Vue, you use `ref()` to make primitive values reactive. For complex data types on the other hand, you use `reactive()`:
+In Vue, you use `ref()` to make values reactive. For complex data types on the other hand, you use `reactive()`:
 
 ```html
 <!-- src/App.vue -->
