@@ -177,7 +177,7 @@ In Vue, you can use the `v-for` directive to render elements based on an iterabl
 </unyt-tab>
 <unyt-tab label="UIX" default>
 
-In UIX, you can use the standard JavaScript function [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) to convert an array of items into an array of HTML elements. UIX will automatically render an array of HTML elements as multiple consecutive elements in the browser:
+In UIX, you can use the standard JavaScript function [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) to convert an array of items into an array of HTML elements. UIX will automatically render arrays as multiple consecutive elements in the browser:
 
 ```tsx
 // frontend/entrypoint.tsx
@@ -187,7 +187,7 @@ const data = [
 ];
 
 export default <main>
-    <h1>ToDo List</h1>
+    <h1>Todo List</h1>
     { data.map(item => 
         <div>
         { item.todo } - { item.done ? "Done" : "Outstanding" }
