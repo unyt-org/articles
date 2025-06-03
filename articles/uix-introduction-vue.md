@@ -533,4 +533,4 @@ Marking a pointer on the frontend with `eternal` will persist it in the device's
 
 ## This is just the beginning...
 
-UIX and its adjacent projects have a lot more to offer. Check out our [developer documentation](https://docs.unyt.org) to learn more about UIX and the future of web development.
+UIX and its adjacent projects have a lot more to offer. Check out our [developer documentation](https://docs.unyt.org/manual/uix/getting-started) to learn more about UIX and the future of web development.
